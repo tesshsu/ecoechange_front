@@ -24,7 +24,7 @@ export default function About() {
                       Ecoechange, c'est quoi ?
                   </h3>
                     <p className="text-xl font-semibold leading-normal mb-2 text-gray-800 mb-2">
-                        Une platform solidarite
+                        Une plateforme solidarité
                     </p>
                 </div>
                 <div className="mt-10 py-10 border-t border-gray-300 text-left">
@@ -50,7 +50,7 @@ export default function About() {
                           Nous vous accompagnons dans le partage de vos idées écologiques. Nous vous garantissons un maximum de simplicité.
                       </p>
 					   <p className="mb-4 text-lg leading-relaxed text-gray-800">
-                          En quelques étapes, simples et rapides, votre vie quotidienne vous apporte satisfaction. Les idées est transparent et l'utilisatuers sont rassurés. Avec Ecoechange, tout est simplifié ! Vous avez des questions ? Contactez-nous, nous sommes là pour vous aider.
+                          En quelques étapes, simples et rapides, votre vie quotidienne vous apporte satisfaction. Les idées est transparent et l'utilisateurs sont rassurés. Avec Ecoechange, tout est simplifié ! Vous avez des questions ? Contactez-nous, nous sommes là pour vous aider.
                       </p>
 					   <p className="mb-4 text-lg leading-relaxed text-gray-800">
                            Cet outil permet aux professionnels et aux particuliers de visualiser et d'analyser toutes les données des idées. Grâce à une gestion technico-économique plus fine, nous leur permettons de prendre la bonne décision.

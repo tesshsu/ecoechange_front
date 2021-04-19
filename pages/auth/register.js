@@ -31,7 +31,7 @@ export default function Register() {
           email: 'Cet email est déjà utilisé'
         });
       } else {
-        alert('Impossible de créer le compte, merci de constacter notre equipe');
+        alert('Impossible de créer le compte, merci de contacter notre equipe');
       }
     }
   }
@@ -45,15 +45,15 @@ export default function Register() {
               <div className="rounded-t mb-0 px-6 py-6">
                 <div className="text-center mb-3">
                   <h6 className="text-green-500 text-sm font-bold">
-                    Créez un compte gratuit
+                    Créez votre compte gratuitement
                   </h6>
                 </div>
-                <p className="notifyForLogin text-md leading-relaxed text-gray-800 text-left">  La Connexion qui vous permet dedéposer et gérer vos idées. Ajouter les idées aux favoris qui vous intéressent </p>
+                <p className="notifyForLogin text-md leading-relaxed text-gray-800 text-left">  L'accès à votre compte vous permettra de déposer et gérer vos idées. Vous pouvez aussi ajouter les idées qui vous intéressent dans vos favoris. </p>
                 <hr className="mt-6 border-b-1 border-gray-400" />
               </div>
               <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
                 <div className="text-gray-700 text-center mb-3 font-bold">
-                  <small>Créez un compte avec</small>
+                  <small>Créez votre compte avec</small>
                 </div>
                 <Form
 				  initialValues={{
@@ -91,7 +91,7 @@ export default function Register() {
 									  className="block uppercase text-gray-700 text-xs font-bold mb-2"
 									  htmlFor="email"
 									>
-									  Email
+									  Votre adresse Email
 									</label>
 									<input
 									  {...input}
@@ -110,7 +110,7 @@ export default function Register() {
 									  className="block uppercase text-gray-700 text-xs font-bold mb-2"
 									  htmlFor="password"
 									>
-									  Mot de passe
+									  Votre mot de passe
 									</label>
 									<input
 									  {...input}
@@ -129,14 +129,14 @@ export default function Register() {
 									  className="block uppercase text-gray-700 text-xs font-bold mb-2"
 									  htmlFor="password_confirmation"
 									>
-									  Confirmer Mot de passe
+									  Confirmer votre mot de passe
 									</label>
 									<input
 									  {...input}
 									  type="password"
 									  value= {values.password_confirmation}
 									  className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
-									  placeholder="Mot de passe confirme"
+									  placeholder="Mot de passe"
 									/>{meta.error && meta.touched && <span className="text-green-500 text-sm">{meta.error}</span>}
 								  </div>
 								)}
@@ -149,7 +149,7 @@ export default function Register() {
 							  type="submit"
 							  disabled={submitting || invalid}
 							>
-							  Create Account
+							  Créer mon compte 
 							</button>
 						  </div>
 						</form>

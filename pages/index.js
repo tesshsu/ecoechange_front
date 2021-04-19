@@ -90,10 +90,10 @@ export default function Index() {
 	  <section className="compare-block border border-t border-gray-400 mt-48 md:mt-40 pb-40 relative bg-white">
         <div className="compare-description-block items-center flex flex-wrap justify-center mb-3 md\:hidden">
 			<h1 className="text-2xl text-gray-800 break-words w-70 border border-green-500 rounded mt-4 p-2">
-                Lancez votre idée / vendre / service / atelier <span className="font-bold text-3xl text-green-500">écologique / local / natural </span> afin de vendre ou échanger plus facilement sur votre mode de vie écologique ou zéro déchet.
+                Lancez votre idée / vendre / service / atelier <span className="font-bold text-3xl text-green-500">écologique / local / naturelle </span> afin de vendre ou échanger plus facilement sur votre mode de vie écologique ou zéro déchet.
 			</h1>
             <p className="mt-4 text-lg break-words w-70 leading-relaxed text-gray-800">
-                Cette plateforme est accessible dans toute la France. Elle est ouverte aux professionnels déclarés ou particulier : commerçants , artisans et producteurs, particuliers, présentation de services etc,  la plateforme est entièrement prise en charge de manière solidaire
+                Cette plateforme est accessible dans toute la France. Elle est ouverte aux professionnels déclarés ou aux particuliers : commerçants , artisans et producteurs, particuliers, présentation de services etc,  la plateforme est entièrement prise en charge de manière solidaire
             </p>
 		  </div>
 
@@ -132,7 +132,7 @@ export default function Index() {
               <div className="class-block w-full md:w-6/12 px-4 z-40">
                   <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded bg-green-500">
                       <div className="w-full align-center text-white prixCompareGratuit">
-                          <span className="font-bold px-1 text-4xl text-right underline">cherchez</span>
+                          <span className="font-bold px-1 text-4xl text-right underline">Cherchez</span>
                           <span className="font-bold text-xl text-left">Local / tout en France </span>
                       </div>
                       <img
@@ -145,7 +145,7 @@ export default function Index() {
                               Vous recherchez vos besoins?
                           </h4>
                           <p className="text-md font-light mt-2 text-white">
-                              Par la recherche et la comparaison des meilleures compétences écologiques / Recette économique / produits durables / service local / atelier Local ou tout en France ?
+                              Par la recherche et la comparaison des meilleures compétences écologiques / recettes économiques / produits durables / service local / atelier local ou tout en France ?
                               <Link href="/annonces">
                               <button
                                   className="bg-white text-gray-700 active:bg-gray-700 text-xs font-bold uppercase px-4 py-2 rounded-full shadow hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150"
@@ -214,7 +214,7 @@ export default function Index() {
               <div className="flex flex-wrap">
                 <div className="w-full lg:w-4/12 px-4">
                   <h5 className="text-xl font-semibold pb-4 text-center">
-                      Partagez vos découvertes sur les idées, produits, service, atelier ou votre boutique
+                      Partagez vos découvertes sur les idées, produits, services, ateliers ou votre boutique
                   </h5>
                   <Link href="/auth/login">
                     <div className="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-full ease-linear transition-all duration-150">

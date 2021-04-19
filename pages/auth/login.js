@@ -119,7 +119,7 @@ export default function Login() {
                                                         type="submit"
                                                         disabled={invalid}
                                                     >
-                                                        Error
+                                                        Connexion
                                                     </button> ) : (
                                                     <button
                                                         className="bg-green-500 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
@@ -135,7 +135,7 @@ export default function Login() {
                                     )}
                                 />
                                 <p className="notifyForLogin text-sm leading-relaxed text-green-500 text-left"> <i className="fas fa-feather"> </i> Cette connexion vous permet de déposer et gérer vos publications.</p>
-                                <p className="notifyForLogin text-sm leading-relaxed text-green-500 text-left mt-2"> <i className="fas fa-bookmark"> </i> Ajouter vos les idées en favoris.</p>
+                                <p className="notifyForLogin text-sm leading-relaxed text-green-500 text-left mt-2"> <i className="fas fa-bookmark"> </i> Ajouter vos idées en favoris.</p>
                             </div>
                         </div>
                         <div className="loginBottom flex flex-wrap text-white relative">

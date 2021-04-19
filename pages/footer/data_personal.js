@@ -92,7 +92,7 @@ export default function dataPersonal() {
                         <span className="text-xl font-bold block uppercase tracking-wide text-green-500">
                           <i className="fas fa-certificate text-lg mr-1"></i>
                         </span>
-                        <span className="text-sm text-gray-500">protège planète</span>
+                        <span className="text-sm text-gray-500">Protègez la planète</span>
                       </div>
                     </div>
                   </div>
