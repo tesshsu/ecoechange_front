@@ -10,7 +10,7 @@ import {
 	statuVendeurOptions,
 	durationEcos,
 	OuiOptions
-} from 'helpers/constant'
+} from '../../helpers/constant'
 import {
 	categoryFilterOptions,
 	listFilterOptions
@@ -46,12 +46,13 @@ const QuestionsClassic = ({dispatch, loading, error, idea}) => {
 		id: idea?.id,
 		category: idea?.category,
 		sub_category: idea?.sub_category,
+		title: idea?.title,
 		usage: idea?.usage,
 		postal_code: idea?.postal_code,
 		owner_type: idea?.owner_type,
 		experience_eco: idea?.experience_eco,
 		content: idea?.content,
-		accord_contact: idea?.accord_contact,
+		accord_contact: idea?.accord_contact?.toString(),
 		shop_address: idea?.shop_address,
 		own_website: idea?.own_website,
 		product_price: idea?.product_price
@@ -72,7 +73,7 @@ const QuestionsClassic = ({dispatch, loading, error, idea}) => {
 	}
 
 	useEffect(() => {
-	if( isAuthentificated && loggedUser && idea ){
+		if( isAuthentificated && loggedUser && idea ){
 			const owner = loggedUser?.loggedUser?.id;
 			return setEditIdea(true), setisClickSubmit(true)
 		}
@@ -188,7 +189,7 @@ const QuestionsClassic = ({dispatch, loading, error, idea}) => {
 					) :(
 						null
 					)}
-					<div className="relative flex flex-col min-w-0 break-words bg-gray-200 w-full mb-6 shadow-lg border border-gray-300 border-dashed rounded-lg">
+					<div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg border border-gray-300 border-dashed rounded-lg">
 						<div className="formBlock px-4 py-5 flex-auto">
 							<Form
 								initialValues={sendPostQuestionsvalues}
@@ -197,14 +198,14 @@ const QuestionsClassic = ({dispatch, loading, error, idea}) => {
 									<form onSubmit={handleSubmit}>
 										<div className="tab-content tab-space">
 											<div className={openTab === 1 ? "block" : "hidden"} id="link1">
-												<h4 className="text-white bg-gray-800 text-center text-lg my-4 mb-6 font-bold rounded">D'abord quel idée vous voulez partager ?</h4>
+												<h4 className="text-white bg-gray-800 text-center text-lg my-4 mb-6 font-bold rounded">Parlez nous de votre idée  partager </h4>
 												<div className="flex flex-wrap">
 													<div className="innerList w-full lg:w-6/12 px-4">
 														<label
-															className="block uppercase text-gray-700 text-md font-bold mb-2"
+															className="block uppercase text-gray-800 text-md font-bold mb-2"
 															htmlFor="category"
 														>
-															{editIdea ? "Votre idée Catégorie" : "*Votre idée Catégorie"}
+															{editIdea ? "Catégorie" : "*Catégorie"}
 														</label>
 														<Field
 															name="category"
@@ -223,10 +224,10 @@ const QuestionsClassic = ({dispatch, loading, error, idea}) => {
 
 													<div className="innerList w-full lg:w-6/12 px-4">
 														<label
-															className="block uppercase text-gray-700 text-md font-bold mb-2"
+															className="block uppercase text-gray-800 text-md font-bold mb-2"
 															htmlFor="sub_category"
 														>
-															{editIdea ? "Précisez votre idée list :" : "*Précisez votre idée list :"}
+															{editIdea ? "Sous catégorie " : "*Sous catégorie "}
 														</label>
 														<Field
 															name="sub_category"
@@ -241,12 +242,33 @@ const QuestionsClassic = ({dispatch, loading, error, idea}) => {
 																))
 															}
 														</Field>
-														<p className="text-sm text-gray-500">Champs obligatoires pour afficher les étiquettes de filtre</p>
+														<p className="text-sm font-bold text-green-500">Champs obligatoires pour afficher les étiquettes de filtre</p>
 														<Error name="sub_category"/>
 													</div>
 												</div>
 
-												<div className="flex flex-wrap mt-12 px-4">
+												<div className="flex flex-wrap mt-2 px-4">
+													<label
+														className="block uppercase text-gray-700 text-md font-bold mb-2"
+														htmlFor="postal_code"
+													>
+														{editIdea ? "Titre " : "*Titre "}
+													</label>
+													<span className="text-gray-700 text-sm ml-2"> <i
+														className="fas fa-info-circle animate-bounce"></i> Jusqu'à 150 caractères</span>
+													<Field
+														name="title"
+														validate={formValidate.composeValidators(formValidate.required, formValidate.matchTitle)}
+														component="input"
+														type="text"
+														value={values.title}
+														placeholder="Titre de votre idée"
+														className="px-3 py-2 placeholder-gray-400 text-gray-800 relative border border-gray-400 bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full pl-10"
+													/>
+													<Error name="title"/>
+												</div>
+
+												<div className="flex flex-wrap mt-4 px-4">
 													<label
 														className="block uppercase text-gray-700 text-md font-bold mb-2"
 														htmlFor="content"
@@ -254,12 +276,12 @@ const QuestionsClassic = ({dispatch, loading, error, idea}) => {
 														{editIdea ? "*les détails de votre idée" : "*les détails de votre idée"}
 													</label>
 													<button
-														className="ml-2 text-gray-700 active:bg-gray-600 uppercase text-sm px-2 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button"
+														className="ml-2 text-gray-700 active:bg-gray-800 uppercase text-sm px-2 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button"
 														onMouseEnter={openTooltip}
 														onMouseLeave={closeTooltip}
 														ref={btnRef}
 													>
-														<i className="fas fa-question-circle"></i> Soit c'est le recette, merci d'ecrire les détails
+														<i className="fas fa-question-circle"></i> SI C'EST UNE RECETTE, MERCI DE SUIVRE CETTE TRAME
 													</button>
 													<div
 														className={
@@ -270,41 +292,41 @@ const QuestionsClassic = ({dispatch, loading, error, idea}) => {
 													>
 														<div>
 															<div
-																className="text-gray-700 font-semibold p-3 mb-0 border-b border-solid border-gray-200 uppercase rounded-t-lg"
+																className="text-gray-800 font-semibold p-3 mb-0 border-b border-solid border-gray-200 uppercase rounded-t-lg"
 															>
 																Example pour le recette
 															</div>
-															<div className="text-gray-700 p-3">
+															<div className="text-gray-800 p-3">
 																<ul className="list-unstyled">
 																	<li>
-																		1. list Ingrédients
+																		1. Liste des ingrédients
 																	</li>
 																	<li>
-																		2. Ustensiles
+																		2. Ustensiles/Matériel nécessaire
 																	</li>
 																	<li>
 																		3. Temps de Préparation
 																	</li>
 																	<li>
-																		4. Étape de Préparation
+																		4. tapes de Préparation
 																	</li>
 																</ul>
 															</div>
 															<div
-																className="bg-white text-gray-700 font-semibold p-3 mb-0 border-b border-solid border-gray-200 uppercase rounded-t-lg"
+																className="bg-white text-gray-800 font-semibold p-3 mb-0 border-b border-solid border-gray-200 uppercase rounded-t-lg"
 															>
-																Example pour information boutique, produit
+																Exemple pour une annonce dune boutique, dun produit/service
 															</div>
-															<div className="text-gray-700 p-3">
+															<div className="text-gray-800 p-3">
 																<ul className="list-unstyled">
 																	<li>
 																		1. Votre produit
 																	</li>
 																	<li>
-																		2. Votre avis sur le produit utilisé
+																		2. Avis sur le produit
 																	</li>
 																	<li>
-																		3. Si vous avez un site Web, veuillez indiquer votre site Web
+																		3. Si vous avez un site Web, veuillez indiquer le lien
 																	</li>
 																</ul>
 															</div>
@@ -317,8 +339,8 @@ const QuestionsClassic = ({dispatch, loading, error, idea}) => {
 														type="text"
 														rows={8}
 														value={values.content}
-														placeholder="Par example list Ingrédients  Temps de Préparation produit utilisé etc"
-														className="ideaTextarea px-2 placeholder-gray-400 text-gray-700 relative border border-gray-400 bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full pl-10"
+														placeholder="Par exemple: la liste des ingrédients, le temps de préparation, les produits utilisés etc..."
+														className="ideaTextarea px-2 placeholder-gray-400 text-gray-800 relative border border-gray-400 bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full pl-10"
 													/>
 													<Error name="content"/>
 												</div>
@@ -326,10 +348,10 @@ const QuestionsClassic = ({dispatch, loading, error, idea}) => {
 												<div className="flex flex-wrap mt-4">
 													<div className="w-full lg:w-6/12 px-4">
 														<label
-															className="block uppercase text-gray-700 text-md font-bold mb-2"
-															htmlFor="fuel"
+															className="block uppercase text-gray-800 text-md font-bold mb-2"
+															htmlFor="usage"
 														>
-															{ editIdea ? "Utilisation publicitaire" : "*Utilisation publicitaire"}
+															{ editIdea ? "OBJECTIF" : "*OBJECTIF"}
 														</label>
 														<div
 															className="relative flex w-full flex-wrap items-stretch mb-3">
@@ -349,7 +371,7 @@ const QuestionsClassic = ({dispatch, loading, error, idea}) => {
 															<Condition when="usage" is="sell"
 																	   className="mt-2">
 																<label
-																	className="block uppercase text-gray-700 text-md font-bold mb-2 mt-2"
+																	className="block uppercase text-gray-800 text-md font-bold mb-2 mt-2"
 																	htmlFor="product_price"
 																>
 																	Le prix de vendre / service ( Champ facultative )
@@ -360,10 +382,10 @@ const QuestionsClassic = ({dispatch, loading, error, idea}) => {
 																	type="text"
 																	value={values.product_price}
 																	placeholder="25"
-																	className="px-3 py-2 placeholder-gray-400 text-gray-700 relative border border-gray-400 bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full pl-10"
+																	className="px-3 py-2 placeholder-gray-400 text-gray-800 relative border border-gray-400 bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full pl-10"
 																/>
 																<p className="text-md leading-relaxed text-gray-500">
-																	Veuillez indiquer le prix unitaire du produit ou le prix horaire du service, par exmaple 2€/verre, 20€/heure etc, ou si vous n'avez pas de prix fixe, laissez ce champ vide
+																	Veuillez indiquer le prix unitaire du produit ou le prix horaire du service, par exmaple 2verre, 20heure etc, ou si vous n'avez pas de prix fixe, laissez ce champ vide
 																</p>
 																<Error name="product_price" />
 															</Condition>
@@ -371,10 +393,10 @@ const QuestionsClassic = ({dispatch, loading, error, idea}) => {
 													</div>
 													<div className="w-full lg:w-6/12 px-4">
 														<label
-															className="block uppercase text-gray-700 text-md font-bold mb-2"
+															className="block uppercase text-gray-800 text-md font-bold mb-2"
 															htmlFor="postal_code"
 														>
-															{editIdea ? "Votre code postal" : "*Votre code postal"}
+															{editIdea ? "code postal" : "*code postal"}
 														</label>
 														<Field
 															name="postal_code"
@@ -383,7 +405,7 @@ const QuestionsClassic = ({dispatch, loading, error, idea}) => {
 															type="text"
 															value={values.postal_code}
 															placeholder="06130"
-															className="px-3 py-2 placeholder-gray-400 text-gray-700 relative border border-gray-400 bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full pl-10"
+															className="px-3 py-2 placeholder-gray-400 text-gray-800 relative border border-gray-400 bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full pl-10"
 														/>
 														<Error name="postal_code"/>
 													</div>
@@ -399,7 +421,7 @@ const QuestionsClassic = ({dispatch, loading, error, idea}) => {
 																		type="submit"
 																		disabled={invalid}
 																	>
-																		<i className="fas fa-exclamation-circle text-base mr-1 animate-bounce"></i> Répondre à toutes les questions afin de valider
+																		<i className="fas fa-exclamation-circle text-base mr-1 animate-bounce"></i> Répondre  toutes les questions afin de valider
 
 																	</button>
 																	<p className="text-md leading-relaxed text-gray-500">
@@ -450,11 +472,11 @@ const QuestionsClassic = ({dispatch, loading, error, idea}) => {
 												</div>
 											</div>
 											<div className={openTab === 2 ? "block" : "hidden"} id="link2">
-												<h4 className="text-white bg-gray-800 text-center text-lg my-4 mb-6 rounded font-bold"> La connaissancede soi est intimement liée à la qualité de votre idée</h4>
+												<h4 className="text-white bg-gray-800 text-center text-lg my-4 mb-6 rounded font-bold"> La connaissancede soi est intimement liée  la qualité de votre idée</h4>
 												<div className="flex flex-wrap">
 													<div className="w-full lg:w-6/12 px-4">
 														<label
-															className="block uppercase text-gray-700 text-md font-bold mb-2"
+															className="block uppercase text-gray-800 text-md font-bold mb-2"
 															htmlFor="owner_type"
 														>
 															{editIdea ? "Vous êtes :" : "*Vous êtes :"}
@@ -473,23 +495,22 @@ const QuestionsClassic = ({dispatch, loading, error, idea}) => {
 															<Condition when="owner_type" is="pro"
 																	   className="mt-2">
 																<label
-																	className="block uppercase text-gray-700 text-md font-bold mb-2 mt-2"
+																	className="block uppercase text-gray-800 text-md font-bold mb-2 mt-2"
 																	htmlFor="shop_address"
 																>
 																	Votre adress de boutique
 																</label>
 																<Field
 																	name="shop_address"
-																	validate={formValidate.matchAddress}
 																	component="input"
 																	type="text"
 																	value={values.shop_address}
 																	placeholder="4 run menu 44000 Nantes"
-																	className="px-3 py-2 placeholder-gray-400 text-gray-700 relative border border-gray-400 bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full pl-10"
+																	className="px-3 py-2 placeholder-gray-400 text-gray-800 relative border border-gray-400 bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full pl-10"
 																/>
 																<Error name="shop_address"/>
 																<label
-																	className="block uppercase text-gray-700 text-md font-bold mb-2 mt-2"
+																	className="block uppercase text-gray-800 text-md font-bold mb-2 mt-2"
 																	htmlFor="own_website"
 																>
 																	Lien vers votre boutique (si vous en avez un)
@@ -501,14 +522,14 @@ const QuestionsClassic = ({dispatch, loading, error, idea}) => {
 																	type="text"
 																	value={values.own_website}
 																	placeholder="https://myboutique.fr"
-																	className="px-3 py-2 placeholder-gray-400 text-gray-700 relative border border-gray-400 bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full pl-10"
+																	className="px-3 py-2 placeholder-gray-400 text-gray-800 relative border border-gray-400 bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full pl-10"
 																/>
 																<Error name="own_website"/>
 															</Condition>
 															<Condition when="owner_type" is="blogger"
 																	   className="mt-2">
 																<label
-																	className="block uppercase text-gray-700 text-md font-bold mb-2 mt-2"
+																	className="block uppercase text-gray-800 text-md font-bold mb-2 mt-2"
 																	htmlFor="own_website"
 																>
 																	Lien vers votre blog
@@ -520,33 +541,38 @@ const QuestionsClassic = ({dispatch, loading, error, idea}) => {
 																	type="text"
 																	value={values.own_website}
 																	placeholder="https://myblogger.fr"
-																	className="px-3 py-2 placeholder-gray-400 text-gray-700 relative border border-gray-400 bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full pl-10"
+																	className="px-3 py-2 placeholder-gray-400 text-gray-800 relative border border-gray-400 bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full pl-10"
 																/>
 																<Error name="own_website"/>
 															</Condition>
 															<Condition when="owner_type" is="youtuber"
 																	   className="mt-2">
 																<label
-																	className="block uppercase text-gray-700 text-md font-bold mb-2 mt-2"
+																	className="block uppercase text-white text-md font-bold mb-2 mt-2"
 																	htmlFor="own_website"
 																>
-																	Votre chaîne YouTube
+																	Votre line de  Youtube ( line via Youtube )
 																</label>
 																<Field
 																	name="own_website"
-																	//validate={formValidate.matchURL}
 																	component="input"
 																	type="text"
 																	value={values.own_website}
-																	placeholder="https://www.youtube.com/channel/myyoutube"
-																	className="px-3 py-2 placeholder-gray-400 text-gray-700 relative border border-gray-400 bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full pl-10"
+																	placeholder="https://youtu.be/9_FfJa7dah0"
+																	className="px-3 py-2 placeholder-gray-400 text-gray-800 relative border border-gray-400 bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full pl-10"
 																/>
+																<img
+																	alt="tip youtube"
+																	src={require("assets/img/tipYoutube.png")}
+																	className="max-w-150-px align-left mt-2"
+																/>
+																<span className="text-white text-sm font-bold">Cela affichera votre vidéo youtube directement sur la page de l'idée</span>
 																<Error name="own_website"/>
 															</Condition>
-															<Condition when="owner_type" is="fb"
+															<Condition when="owner_type" is="Instagram"
 																	   className="mt-2">
 																<label
-																	className="block uppercase text-gray-700 text-md font-bold mb-2 mt-2"
+																	className="block uppercase text-gray-800 text-md font-bold mb-2 mt-2"
 																	htmlFor="own_website"
 																>
 																	Lien vers votre page Facebook
@@ -557,8 +583,27 @@ const QuestionsClassic = ({dispatch, loading, error, idea}) => {
 																	component="input"
 																	type="text"
 																	value={values.own_website}
+																	placeholder="https://www.instagram.com/ecoechange/"
+																	className="px-3 py-2 placeholder-gray-400 text-gray-800 relative border border-gray-400 bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full pl-10"
+																/>
+																<Error name="own_website"/>
+															</Condition>
+															<Condition when="owner_type" is="fb"
+																	   className="mt-2">
+																<label
+																	className="block uppercase text-gray-800 text-md font-bold mb-2 mt-2"
+																	htmlFor="own_website"
+																>
+																	Lien vers votre page Instagram
+																</label>
+																<Field
+																	name="own_website"
+																	//validate={formValidate.matchURL}
+																	component="input"
+																	type="text"
+																	value={values.own_website}
 																	placeholder="https://www.facebook.com/monlienpage"
-																	className="px-3 py-2 placeholder-gray-400 text-gray-700 relative border border-gray-400 bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full pl-10"
+																	className="px-3 py-2 placeholder-gray-400 text-gray-800 relative border border-gray-400 bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full pl-10"
 																/>
 																<Error name="own_website"/>
 															</Condition>
@@ -567,14 +612,16 @@ const QuestionsClassic = ({dispatch, loading, error, idea}) => {
 
 													<div className="w-full lg:w-6/12 px-4">
 														<label
-															className="block uppercase text-gray-700 text-md font-bold mb-2"
+															className="block uppercase text-gray-800 text-md font-bold mb-2"
 															htmlFor="experience_eco"
 														>
-															{editIdea ? "Votre vie d'ecologique durée :" : "Votre vie d'ecologique durée :"}
+															{editIdea ? "Pour vous le respect de l’environnement est :" : "Pour vous le respect de l’environnement est :"}
 														</label>
 														<div
 															className="relative flex w-full flex-wrap items-stretch mb-3">
-															<Field name="experience_eco" validate={formValidate.required} component="select" className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-3 py-2 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+															<Field name="experience_eco" validate={formValidate.required}
+																   component="select"
+																   className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-3 py-2 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
 																{durationEcos.map(durationEco => (
 																	<option value={durationEco.value}>{durationEco.label}</option>
 																))}
@@ -587,17 +634,19 @@ const QuestionsClassic = ({dispatch, loading, error, idea}) => {
 													</div>
 												</div>
 
-												<div className="flex flex-wrap mt-12 px-4">
+												<div className="flex flex-wrap mt-4 px-4">
 													<label
-														className="block uppercase text-gray-700 text-md font-bold mb-2"
+														className="block uppercase text-gray-800 text-md font-bold mb-2"
 														htmlFor="accord_contact"
 													>
-														{editIdea ? "souhaitez-vous affiche votre information de contact :" : "*souhaitez-vous affiche votre information de contact :"}
+														{editIdea ? "SOUHAITEZ-VOUS AFFICHER VOS INFORMATIONS DE CONTACT :" : "*SOUHAITEZ-VOUS AFFICHER VOS INFORMATIONS DE CONTACT :"}
 													</label>
 													<p className="text-md leading-relaxed text-gray-500 ml-3"> ( Votre
 														email ou telephone ) </p>
 													<div className="relative flex w-full flex-wrap items-stretch mb-3">
-														<Field name="accord_contact" validate={formValidate.required} component="select" className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-3 py-2 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+														<Field name="accord_contact" validate={formValidate.required}
+															   component="select"
+															   className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-3 py-2 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
 															{OuiOptions.map(OuiOption => (
 																<option value={OuiOption.value}>{OuiOption.label}</option>
 															))}
@@ -619,7 +668,7 @@ const QuestionsClassic = ({dispatch, loading, error, idea}) => {
 																		type="submit"
 																		disabled={invalid}
 																	>
-																		Veuillez répondre à toutes les questions
+																		Veuillez répondre  toutes les questions
 																	</button>
 																	<p className="text-md leading-relaxed text-gray-500">
 																		Veuillez vérifier les champs avec * afin de compléter le questionnaire
@@ -639,10 +688,10 @@ const QuestionsClassic = ({dispatch, loading, error, idea}) => {
 																		<div className="container text-center">
 																			<p className="text-md leading-relaxed text-gray-500">
 																				Bravo !
-																				Vous avez modifier à toutes !!
+																				Vous avez modifier  toutes !!
 																			</p>
 																			<label
-																				className="block uppercase text-gray-700 text-md mb-2"
+																				className="block uppercase text-gray-800 text-md mb-2"
 																				htmlFor="suivePremium"
 																			>
 																				Souhaitiez vous continuer modifier les photos ?
@@ -724,12 +773,12 @@ const QuestionsClassic = ({dispatch, loading, error, idea}) => {
 														Ajoutez des photos
 													</div>
 													<p className="text-lg leading-relaxed text-gray-500"> Telecharger des
-														photos pour publier votre idée / produit verte ( ficher jpg, png, gif ),
+														photos pour publier votre idée / produit vert ( ficher jpg, png, gif ),
 													</p>
 													{editIdea && idea?.premium == true ? (
-														<p className="text-lg leading-relaxed text-green-500"> Ajoute jusqu'à 10 photos</p>
+														<p className="text-lg leading-relaxed text-green-500"> Ajoute jusqu' 10 photos</p>
 													):(
-														<p className="text-lg leading-relaxed text-green-500"> Ajoute jusqu'à 5 photos</p>
+														<p className="text-lg leading-relaxed text-green-500"> Ajoute jusqu' 5 photos</p>
 													)}
 													<div className="demoPhotos flex justify-center">
 														<div className="mr-4 p-3">
@@ -742,8 +791,8 @@ const QuestionsClassic = ({dispatch, loading, error, idea}) => {
 													</div>
 													<ImageUpload/>
 													<p className="text-md leading-relaxed text-gray-500">
-														Vous ACCEPTEZ
-														les conditions pour publier votre idée / produit verte
+														OU ACCEPTEZ
+														les conditions pour publier votre idée / produit vert
 														<Link href="/footer/policy">
 															<a
 																href="#"

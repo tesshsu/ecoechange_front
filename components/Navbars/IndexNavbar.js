@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Link from "next/link";
 // components
-import IndexDropdown from "components/Dropdowns/IndexDropdown.js";
+//import IndexDropdown from "components/Dropdowns/IndexDropdown.js";
 import useLoggedUser from 'service/hooks/useLoggedUser';
 import {fetchUser} from 'service/actions/user';
 import {connect} from 'react-redux';
@@ -34,18 +34,18 @@ const Navbar = ({dispatch, loading, user, hasErrors}) => {
 
   return (
     <>
-      <nav className="top-0 fixed z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg bg-green-500 shadow">
+      <nav className="top-0 fixed z-50 w-full flex flex-wrap items-center justify-between navbar-expand-lg bg-green-500 shadow">
         <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
             <Link href="/">
               <a
-                className="text-gray-800 text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-no-wrap uppercase"
+                className="text-gray-800 text-sm font-bold leading-relaxed inline-block whitespace-no-wrap uppercase mt-2"
                 href="#pablo"
               >
                 <img
                     src={require("assets/img/logo.png")}
-                    className="w12 sm:w-4/12 px-4"
-                    alt="..."
+                    className="logoEco w12 sm:w-4/12 px-4"
+                    alt="ecoechange"
                   ></img>
               </a>
             </Link>
@@ -59,15 +59,12 @@ const Navbar = ({dispatch, loading, user, hasErrors}) => {
           </div>
           <div
             className={
-              "lg:flex flex-grow items-center bg-white lg:bg-transparent lg:shadow-none" +
+              "lg:flex flex-grow items-center lg:bg-transparent lg:shadow-none" +
               (navbarOpen ? " block" : " hidden")
             }
             id="example-navbar-warning"
           >
             <ul className="ecoMenu flex flex-col lg:flex-row list-none lg:ml-auto">
-                 <li className="flex items-center">
-                     <IndexDropdown />
-                 </li>
                 <li className="flex items-center">
                     {isAuthentificated && cookie ? (
                         <Link href="/auth/setting_user">
@@ -140,6 +137,23 @@ const Navbar = ({dispatch, loading, user, hasErrors}) => {
 				  </Link>
                 </button>
               </li>
+                <li className="flex items-center">
+                    <button
+                        className="bg-gray-800 text-white active:bg-gray-700 text-xs font-bold uppercase px-4 py-2 rounded-full shadow hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150"
+                        type="button"
+                    >
+                        <Link href="/footer/contact">
+                            <a
+                                href="#pablo"
+                                className={
+                                    "text-sm py-1 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-white animate-bounce"
+                                }
+                            >
+                                Rejoignez-nous <i className="fas fa-leaf"></i>
+                            </a>
+                        </Link>
+                    </button>
+                </li>
                 {isAuthentificated && cookie && (
                     <li className="flex items-center">
                         <button

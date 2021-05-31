@@ -31,7 +31,7 @@ export default function Register() {
           email: 'Cet email est déjà utilisé'
         });
       } else {
-        alert('Impossible de créer le compte, merci de contacter notre equipe');
+        alert('Vous avez déjà un compte par cet e-mail, veuillez vous rendre sur la page de connexion');
       }
     }
   }
@@ -48,7 +48,7 @@ export default function Register() {
                     Créez votre compte gratuitement
                   </h6>
                 </div>
-                <p className="notifyForLogin text-md leading-relaxed text-gray-800 text-left">  L'accès à votre compte vous permettra de déposer et gérer vos idées. Vous pouvez aussi ajouter les idées qui vous intéressent dans vos favoris. </p>
+                <p className="notifyForLogin text-md leading-relaxed text-gray-800 text-left">  L'accès à votre compte vous permettra de déposer et gérer vos idées. Vous pouvez aussi ajouter les idées qui vous intéressent dans vos favoris. Recevoir des notifications, des newsletters </p>
                 <hr className="mt-6 border-b-1 border-gray-400" />
               </div>
               <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
@@ -149,7 +149,7 @@ export default function Register() {
 							  type="submit"
 							  disabled={submitting || invalid}
 							>
-							  Créer mon compte 
+							  Créer mon compte
 							</button>
 						  </div>
 						</form>

@@ -1,16 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import {isMobile} from 'react-device-detect';
 import MondalContact from "components/Mondal/MondalContact.js";
 import NoteConfiance from "components/Tabs/NoteConfiance.js";
 import {connect} from "react-redux";
 import {renderSwitchValue} from 'helpers/constant';
 import Link from "next/link";
+
 const DetailsSide = ({ dispatch,
 					  loading,
 					  idea}) => {
+	const [isYoutuber, setIsYoutuber] = React.useState(false)
+	const websiteLink = idea?.own_website;
+	const videoid = websiteLink?.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
+	const youtubeId = videoid!= null ? videoid[1] : null;
+	useEffect(() => {
+		if(idea?.own_website?.indexOf('youtu') > -1){
+			return setIsYoutuber(true);
+		}
+	}, [dispatch, idea]);
+
 	const address_boutique = idea?.shop_address ? idea?.shop_address : "none";
 	const prix_idea = idea?.product_price ? idea?.product_price : "none";
   const basics = [
-	  { icon: "fas fa-map-pin", name: "Localisation d'idée", value: idea?.postal_code },
+	  { icon: "fas fa-map-pin", name: "Localisation", value: idea?.postal_code },
 	  { icon: "fas fa-mortar-pestle", name: "Idées publiées par", value: idea?.owner_type },
 	  { icon: "fas fa-hand-holding-usd", name: "Prix du produit", value: prix_idea },
 	  { icon: "fas fa-store", name: "Adresse de la boutique", value: address_boutique }
@@ -19,6 +31,9 @@ const DetailsSide = ({ dispatch,
   return (
     <>
         <div className="sideDetails w-full lg:w-4/12 px-12 mt-4 py-1">
+			<div className="flex flex-wrap font-bold text-green-500 text-xl mt-2">
+				{idea?.title}
+			</div>
 			<div className="flex flex-wrap mt-4">
 			   <NoteConfiance />
 			</div>
@@ -47,6 +62,22 @@ const DetailsSide = ({ dispatch,
 							</a>
 						</span>
 					</div>
+					{isYoutuber &&(
+						<div className="mr-auto text-center">
+							<p className="text-sm text-gray-600">Video Youtube de cette idée</p>
+							{isMobile ? (
+								<iframe width="260" height="280" src={'https://www.youtube.com/embed/'+youtubeId}
+										title="Ecoechange YouTuber video" frameBorder="0"
+										allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+										allowFullScreen></iframe>
+							):(
+								<iframe width="300" height="280" src={'https://www.youtube.com/embed/'+youtubeId}
+										title="Ecoechange YouTuber video" frameBorder="0"
+										allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+										allowFullScreen></iframe>
+							)}
+						</div>
+					)}
 				</div>
 			)}
 
@@ -68,13 +99,13 @@ const DetailsSide = ({ dispatch,
 			</div>
 			<div className="flex flex-wrap mt-2">
 				<div className="flex flex-wrap content-center items-center justify-center mr-auto h-full">
-					<p className="text-gray-400 text-sm">Vous pouvez publier publicitaire de votre boutique / atlier / ferme 100% gratuit ici, veuillez nous contacter directement, nous adapterons les publicités pour vous</p>
+					<p className="text-gray-400 text-sm">Vous pouvez publier une annonce publicitaire de votre boutique / atelier / ferme 100% gratuituitement ici, veuillez nous contacter directement. Nous adapterons les publicités pour vous</p>
 					<Link href="/footer/contact">
 						<a
 							href="http://blog.creative-tim.com?ref=twnjs-footer-small"
 							className="bg-gray-300 mt-2 text-white hover:text-gray-500 text-sm font-semibold block py-1 px-3"
 						>
-							click ici pour contacter
+							cliquez ici pour nous contacter
 						</a>
 					</Link>
 				</div>

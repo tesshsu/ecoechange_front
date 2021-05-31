@@ -1,4 +1,24 @@
 //page questions part
+export const renderSwitchNoteEco = (param) => {
+    switch (param) {
+        case 4:
+            return <h2><i className="fas fa-leaf"></i></h2>;
+        case 5:
+            return <h2><i className="fas fa-leaf"></i><i className="fas fa-leaf"></i></h2>;
+        case 6:
+            return <h2><i className="fas fa-leaf"></i><i className="fas fa-leaf"></i><i className="fas fa-leaf"></i></h2>;
+        case 7:
+            return <span><i className="fas fa-leaf"></i><i className="fas fa-leaf"></i><i className="fas fa-leaf"></i><i className="fas fa-leaf"></i></span>;
+        case 8:
+            return <span><i className="fas fa-leaf"></i><i className="fas fa-leaf"></i><i className="fas fa-leaf"></i><i className="fas fa-leaf"></i></span>;
+        case 9:
+            return <span><i className="fas fa-leaf"></i><i className="fas fa-leaf"></i><i className="fas fa-leaf"></i><i className="fas fa-leaf"></i><i className="fas fa-leaf"></i></span>;
+        case 10:
+            return <span><i className="fas fa-leaf"></i><i className="fas fa-leaf"></i><i className="fas fa-leaf"></i><i className="fas fa-leaf"></i><i className="fas fa-leaf"></i></span>;
+        default:
+            return param;
+    }
+}
 
 export const renderSwitchValue = (param) => {
     switch (param) {
@@ -6,14 +26,10 @@ export const renderSwitchValue = (param) => {
             return 'professionnel';
         case 'sell':
             return 'A Vendre / service';
-        case 'echanger':
-            return 'A échanger';
         case 'share':
             return 'A partager';
         case 'meet':
-            return 'A rencontré';
-        case 'discover':
-            return 'À découvre';
+            return 'Rencontrer';
         case 'other':
             return 'Autre';
         case 'private':
@@ -50,11 +66,9 @@ export const mapToObject= function(m){
 
 export const useOptions = [
     {note: 0, label: '*-- Sélectionnez dans la liste --*', value: ''},
-	{note: 0, label: 'A Vendre / service', value: 'sell'},
-    {note: 0, label: 'A échanger', value: 'exchange'},
+	{note: 0, label: 'A vendre / service', value: 'sell'},
     {note: 0, label: 'A partager', value: 'share'},
-    {note: 0, label: 'A rencontré', value: 'meet'},
-    {note: 0, label: 'A decouvre', value: 'discover'},
+    {note: 0, label: 'Rencontrer', value: 'meet'},
     {note: 0, label: 'Autre', value: 'Autre'}
 ];
 
@@ -64,14 +78,17 @@ export const statuVendeurOptions = [
     {label: 'professionnel', value: 'pro'},
     {label: 'blogger', value: 'blogger'},
     {label: 'youtuber', value: 'youtuber'},
+	{label: 'Instagram', value: 'Instagram'},
     {label: 'propriétaire de la page Facebook', value: 'fb'}
 ]
 
 export const durationEcos = [
-    {note: 0, label: '*-- Sélectionnez dans la liste --*', value: ''},
-    {note: 1, label: 'Tout dans la vie', value: 'all_life'},
-    {note: 0, label: 'Moyenn', value: 'over_five_year'},
-    {note: 0, label: 'Debutant', value: 'starter'}
+    {label: '*-- Sélectionnez dans la liste --*', value: ''},
+    {label: 'Pas important', value: 'pas important'},
+    {label: 'Indifférent', value: 'Indifférent'},
+    {label: 'Occasionnellement', value: 'Occasionnellement'},
+    {label: 'Important', value: 'Important'},
+    {label: 'Indispensable', value: 'Indispensable'}
 ]
 
 export const OuiOptions = [
@@ -111,17 +128,11 @@ export const premuim_options = {
     "maintenance_log": "Possède le ideanet d'entretien",
 }
 
-export const premium_ncs = [
-    {icon: "fas fa-file-contract", name: "Sous garantie", value: "under_warranty", displayFunction: premium_options_display_yes_no},
-    {icon: "fas fa-idea-crash", name: "Ayant déjà subit 1 accident", value: "had_accident", displayFunction: premium_options_display_yes_no},
-    {icon: "fas fa-heart-broken", name: "Des défauts griffes, coups, usures", value: "defects", displayFunction: premium_options_display_yes_no},
-    {icon: "fas fa-file-medical-alt", name: "Justifier le parcours kilometrique", value: "km_certificate", displayFunction: premium_options_display_yes_no},
-    {icon: "fas fa-calendar-check", name: "Contrôle technique ok", value: "technical_check_ok", displayFunction: premium_options_display_yes_no},
-    {icon: "far fa-list-alt", name: "Respect des entretiens périodiques", value: "periodic_maintenance", displayFunction: premium_options_display_yes_no},
-    {icon: "far fa-calendar-alt", name: "Prochaine entretien", value: "next_maintenance_under_5000km", displayFunction: premium_options_display_next_maintenance},
-    {icon: "fas fa-receipt", name: "Facture d'achat", value: "purchase_invoice", displayFunction: premium_options_display_yes_no},
-    {icon: "far fa-id-badge", name: "Carte grise", value: "gray_idead", displayFunction: premium_options_display_yes_no},
-    {icon: "fas fa-id-badge", name: "Possède le ideanet d'entretien", value: "maintenance_log", displayFunction: premium_options_display_yes_no}
+export const listsNoteEcos = [
+    {note: require("assets/img/note/1.png") , name:"+1 Leaf", detail: "Publication d’une idée"},
+    {note: require("assets/img/note/2.png"), name:"+2 Leaves", detail: "Nous laisser un avis"},
+    {note: require("assets/img/note/3.png"),name:"+3 Leaves", detail: "Pour chaque idée mise en favori"},
+    {note: require("assets/img/note/4.png"), name:"+4 Leaves", detail: "Pour chaque idée mise en favori"}
 ];
 
 export const listsPartenaires = [
@@ -131,11 +142,22 @@ export const listsPartenaires = [
     {photo:"https://temana.fr/wp-content/uploads/vendome-nice-slider3-min.jpg", name:"Achetez des produits ZD et locaux", region:"ALPES MARITIMES", detail: "Nice est la capitale du département des Alpes-Maritimes sur la Côte d'Azur. Elle est située sur le littoral de galets de la baie des Anges. Fondée par les Grecs puis prisée par l'élite européenne au XIXe siècle", url:"https://saintvallierdethiey.com/", location:"https://www.google.com/maps?q=Saint+vallier+de+thiey&um=1&ie=UTF-8&sa=X&ved=2ahUKEwiny5emjdrvAhUnz4UKHUGdCKoQ_AUoAXoECAEQAw"}
 ];
 
+export const listsAboutPageEquipes = [
+    {photo: require("assets/img/team/tess.jpg"), name:"Yating", line:"https://vacha-design.com/", },
+    {photo: require("assets/img/team/alex.jpg"), name:"Alex", line:"https://vacha-design.com/"},
+    {photo: require("assets/img/team/damien.jpg"),name:"Damien", line:"https://www.linkedin.com/in/damien-baud-74385a6a/"},
+    {photo: require("assets/img/team/fanny.jpg"), name:"Fanny", line:"https://www.linkedin.com/in/fanny-mabillon-b4a202199/"},
+	{photo: require("assets/img/team/julien.jpg"), name:"Julien", line:"https://www.linkedin.com/in/julien-darmanthe/"},
+    {photo: require("assets/img/team/Chanelle.jpg"), name:"Chanelle", line:"https://ecoechange.com/"},
+    {photo: require("assets/img/team/THEODORE.jpg"), name:"Theodore", line:"https://www.linkedin.com/in/theodorentongo/"}
+];
+
+
 export const listsHomePageCategoriesButtons = [
     {photo: require("assets/img/idea/search.jpg"), name:"trouvez une idée /astuce", link:"/annonces"},
     {photo: require("assets/img/idea/publish.jpg"), name:"publiez votre idée/astuce", link:"/vendre"},
-    {photo: require("assets/img/idea/zeroWaste.jpg"),name:"vendez vos produits ZD et locaux ", link:"/vendre"},
-    {photo: require("assets/img/idea/local.jpg"), name:"Achetez des produits ZD et locaux", link:"/annonces"},
+    {photo: require("assets/img/idea/zeroWaste.jpg"),name:"vendez vos produits zero déchet et locaux ", link:"/vendre"},
+    {photo: require("assets/img/idea/local.jpg"), name:"Achetez des produits zero déchet et locaux", link:"/annonces"},
 ];
 
 export const lists = [
@@ -154,7 +176,7 @@ export const pubs = [
 export const listPubs = [
     {icon: "far fa-smile text-lg mr-1", title: "Faciliter la vie eco"},
     {icon: "fas fa-unlock-alt text-lg mr-1", title: "Sécuriser au maximum"},
-    {icon: "far fa-thumbs-up text-lg mr-1", title: "protège planète"}
+    {icon: "far fa-thumbs-up text-lg mr-1", title: "protèger notre planète"}
 ];
 
 export const basics = [

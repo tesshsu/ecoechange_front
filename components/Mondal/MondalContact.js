@@ -15,7 +15,7 @@ const ModalContact = ({ dispatch,
       >
           Informations de contact <i className="fas fa-chevron-circle-down"></i>
       </button>
-        <p className="mt-2 text-gray-400 text-sm">Ces informations sont publiées par l'éditeur de la subvention</p>
+        <p className="mt-2 text-gray-400 text-sm">Ces informations sont publiées par l'éditeur de l’annonce</p>
       {showModal ? (
         <>
           <div
@@ -45,7 +45,7 @@ const ModalContact = ({ dispatch,
 						<div className="container px-4">
 							  <div className="flex flex-wrap ">
 								<div className="w-full flex-1">
-								  <span className="text-md block my-2 text-gray-800 font-bold"><i className="fas fa-envelope"></i>    <a href={`mailto:${idea?.owner.email}`}>en clicker ici</a></span>
+								  <span className="text-md block my-2 text-gray-800 font-bold"><i className="fas fa-envelope"></i>    <a href={`mailto:${idea?.owner.email}`}>En cliquant ici</a></span>
 								</div>
                               </div>
 						</div>
@@ -62,7 +62,7 @@ const ModalContact = ({ dispatch,
                             <div className="container px-4">
                                 <div className="flex flex-wrap ">
                                     <div className="w-full flex-1">
-                                        <p className="text-sm text-gray-400"><Link href="footer/policy">Clicker</Link> ici sur les finalités du traitement de mes données personnelles, les destinataires, le responsable de traitement, les durées de conservation, les coordonnées du DPO et mes droits.</p>
+                                        <p className="text-sm text-gray-400"><Link href="footer/policy">Cliquer </Link> ici les finalités du traitement de mes données personnelles, les destinataires, le responsable de traitement, les durées de conservation, les coordonnées du DPO et mes droits.</p>
                                     </div>
                                 </div>
                             </div>

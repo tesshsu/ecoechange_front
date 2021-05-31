@@ -9,10 +9,10 @@ const DetailsBasic = ({
 					   }) => {
   let yearOfidea = idea?.created_at;
   const basics = [
-	  { icon: "fas fa-clipboard-list", name: "Categorie", value: idea?.category },
+	  { icon: "fas fa-clipboard-list", name: "Catégorie", value: idea?.category },
 	  { icon: "fas fa-blender", name: "Quelle idée", value: idea?.sub_category },
-	  { icon: "fas fa-bullhorn", name: "Annonce pour", value: idea?.usage },
-	  { icon: "fas fa-seedling", name: "Ma vie d'ecologie", value: idea?.experience_eco },
+	  { icon: "fas fa-bullhorn", name: "Objectif", value: idea?.usage },
+	  { icon: "fas fa-seedling", name: "Mon engagement écologique", value: idea?.experience_eco },
 	  { icon: "far fa-clock", name: "créé le", value: moment(yearOfidea).format("DD/MM/YYYY")}
   ];
 
@@ -21,7 +21,7 @@ const DetailsBasic = ({
         <div className="flex flex-wrap">
 			<div className="w-full px-8 py-2 px-2 flex-1">
 				<h4 className="mt-2 px-2 py-2 text-xl leading-relaxed underline text-gray-800 font-bold uppercase text-center">
-					<i className="far fa-address-book"></i> DETAILS DU IDÉE
+					<i className="far fa-address-book"></i> DETAILS DE L’IDÉE :  <span className="text-green-500">{idea?.title}</span>
 				</h4>
 			</div>
 			{basics.map(basic => (

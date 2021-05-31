@@ -11,7 +11,7 @@ import {
 import {filterIdeas} from 'service/actions/ideas';
 import {connect} from "react-redux";
 import {useRouter }  from "next/router";
-
+import CardHomeCategorySlider from "../Cards/CardHomeCategorySlider";
 
 const AnnonceSearchForm = ({
 							   dispatch,
@@ -23,12 +23,12 @@ const AnnonceSearchForm = ({
 	const router = useRouter();
 
 	let initialValues = {
-		category: '',
-		sub_category: '',
-		usage: '',
-		postal_code: '',
-		owner_type: '',
-		experience_eco: ''
+		category: router.query.category ? router.query.category : '',
+		sub_category: router.query.sub_category ? router.query.sub_category : '',
+		usage: router.query.usage ? router.query.usage : '',
+		postal_code: router.query.postal_code ? router.query.postal_code : '',
+		owner_type: router.query.owner_type ? router.query.owner_type : '',
+		experience_eco: router.query.experience_eco ? router.query.experience_eco : '',
 	}
 
 
@@ -43,11 +43,11 @@ const AnnonceSearchForm = ({
 	const onSubmit = async (values) => {
 		const per_page_req = router.query.perPage ? router.query.perPage : 18;
 		const postal_code = values.postal_code
-		const category = values.category
-		const sub_category = values.sub_category
-		const owner_type = values.owner_type
-		const usage = values.usage
-		const experience_eco = values.experience_eco
+		const category = router.query.category ? router.query.category : values.category
+		const sub_category = router.query.sub_category ? router.query.sub_category : values.sub_category
+		const owner_type = router.query.owner_type ? router.query.owner_type :values.owner_type
+		const usage = router.query.usage ? router.query.usage : values.usage
+		const experience_eco = router.query.experience_eco ? router.query.experience_eco : values.experience_eco
 
 		try {
 			dispatch(filterIdeas(router.query.page, per_page_req, postal_code, category, sub_category, owner_type, usage, experience_eco))
@@ -63,6 +63,7 @@ const AnnonceSearchForm = ({
 
 	return (
 		<>
+			<CardHomeCategorySlider />
 			<section className="annonceSearchForm mt-4">
 				<div className="container px-4 mx-auto border-2 rounded py-2 z-40">
 					<Form
@@ -71,26 +72,6 @@ const AnnonceSearchForm = ({
 						render={({ handleSubmit, form, submitting, pristine, values }) => (
 							<form onSubmit={handleSubmit}>
 								<div className="flex flex-wrap mt-4">
-									<div className="w-full px-4 flex-1">
-										<div className="relative flex w-full flex-wrap items-stretch mb-3">
-											<label
-												className="block uppercase text-gray-700 text-sm mb-2"
-												htmlFor="category"
-											>
-												category
-											</label>
-												<Field name="category"
-													   component="select"
-													   value={values?.category}
-													   className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-3 py-2 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
-													{
-														categoryFilterOptions.map( (categoryFilterOption) =>(
-															<option key={categoryFilterOption.code} value={categoryFilterOption.code} >{categoryFilterOption.name}</option>
-														))
-													}
-												</Field>
-										</div>
-									</div>
 									<div className="w-full px-4 flex-1">
 										<label
 											className="block uppercase text-gray-700 text-sm mb-2"

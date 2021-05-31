@@ -63,7 +63,7 @@ export default function FooterSmall(props) {
 						href="http://blog.creative-tim.com?ref=twnjs-footer-small"
 						className="text-white hover:text-gray-400 text-sm font-semibold block py-1 px-3"
 					  >
-						contacts
+						Rejoignez-nous
 					  </a>
 				  </Link>
                 </li>

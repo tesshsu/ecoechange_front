@@ -1,14 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
-import {
-	anti_theft_equipments,
-	comfort_equipments,
-	inside_equipments,
-	security_equipments,
-	other_equipments,
-	outside_equipments
-} from "../../../helpers/constant";
-
+import CardAnnonceMap from "../../Cards/CardAnnonceMap";
+//import CardAnnonceSlider from "../../Cards/CardAnnonceSlider";
 const DetailsDropdown = ({
 							 dispatch,
 							 loading,
@@ -17,8 +10,8 @@ const DetailsDropdown = ({
 
     const address_boutique = idea?.shop_address ? idea.shop_address : "none";
 	const ncs = [
-		{icon: "fas fa-seedling", name: "Details idee", value: idea?.content},
-		{icon: "fas fa-map-pin", name: "Address du boutique", value: address_boutique},
+		{icon: "fas fa-seedling", name: "Détails de l’idée", value: idea?.content},
+		{icon: "fas fa-map-pin", name: "Adresse de la boutique", value: address_boutique},
 	];
 
 	let Equips = idea?.equipments
@@ -28,7 +21,7 @@ const DetailsDropdown = ({
 			<div className="flex flex-wrap">
 				<div className="w-full px-8 py-2 px-2 flex-1">
 					<h4 className="mt-2 px-2 py-2 text-xl leading-relaxed text-gray-800 underline font-bold uppercase rounded text-center">
-						<i class="fab fa-pagelines"></i> Idée est la...
+						<i class="fab fa-pagelines"></i> L’IDÉE EST LA...
 					</h4>
 				</div>
 				{ncs?.map(nc => (
@@ -48,6 +41,7 @@ const DetailsDropdown = ({
 						</div>
 					</div>
 				))}
+				<CardAnnonceMap/>
 			</div>
 		</>
 	);

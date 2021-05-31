@@ -1,11 +1,12 @@
 import React from "react";
 import { createPopper } from "@popperjs/core";
 import {connect} from "react-redux";
-
+import {renderSwitchNoteEco} from "../../helpers/constant";
 const NoteConfiance = ({ dispatch,
 					  loading,
 					  idea}) => {
   const [popoverShow, setPopoverShow] = React.useState(false);
+  const countEco = idea?.note;
   const btnRef = React.createRef();
   const popoverRef = React.createRef();
   const openTooltip = () => {
@@ -27,7 +28,7 @@ const NoteConfiance = ({ dispatch,
             onMouseLeave={closeTooltip}
             ref={btnRef}
           >
-             <i className="fas fa-seedling"></i> <span className="noteConfiance text-md"> {idea?.note} </span>
+              {renderSwitchNoteEco(countEco)}
           </button>
           <div
             className={
@@ -49,6 +50,9 @@ const NoteConfiance = ({ dispatch,
                         </li>
 						<li>
 					        2. Description de l'idée qualifiée
+                        </li>
+                        <li>
+                            3. Nombre de favoris ajoutés par d'autres utilisateurs
                         </li>
                     </ul>
               </div>

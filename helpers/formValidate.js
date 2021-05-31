@@ -22,6 +22,9 @@ export const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 export const patterURL = new RegExp("[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)");
 export const matchURL = value => (!patterURL.test(value) ? "URL inconnue" : undefined);
 
+export const patterTitle = new RegExp("^.{1,100}$");
+export const matchTitle = value => (!patterTitle.test(value) ? "jusqu' 100 caractères" : undefined);
+
 export const ReactSelectAdapter = ({ input, value, note, ...rest }) => (
   <Select {...input} {...value} {...note} {...rest} searchable />
 )

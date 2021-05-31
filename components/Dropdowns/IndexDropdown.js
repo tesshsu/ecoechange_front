@@ -18,16 +18,6 @@ const IndexDropdown = () => {
   };
   return (
     <>
-      <Link href="/prix">
-			<a
-				href="#"
-				className={
-						"text-4xl py-1 px-4 font-normal block w-full whitespace-no-wrap font-bold bg-transparent text-white-500"
-						}
-			>
-              <i className="fas fa-ideat-plus"></i>
-			</a>
-	  </Link>
       <div
         ref={popoverDropdownRef}
         className={
@@ -60,26 +50,6 @@ const IndexDropdown = () => {
             }
           >
             Settings
-          </a>
-        </Link>
-        <Link href="/admin/tables">
-          <a
-            href="#pablo"
-            className={
-              "text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
-            }
-          >
-            Tables
-          </a>
-        </Link>
-        <Link href="/admin/maps">
-          <a
-            href="#pablo"
-            className={
-              "text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
-            }
-          >
-            Maps
           </a>
         </Link>
         <div className="h-0 mx-4 my-2 border border-solid border-gray-200" />
@@ -128,16 +98,6 @@ const IndexDropdown = () => {
             Vendre
           </a>
         </Link>
-        <Link href="/prix">
-          <a
-            href="#pablo"
-            className={
-              "text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
-            }
-          >
-            Prix
-          </a>
-        </Link>
 		<Link href="/annonces">
           <a
             href="#pablo"
@@ -145,7 +105,7 @@ const IndexDropdown = () => {
               "text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
             }
           >
-            Annonce
+            idées
           </a>
         </Link>
 		<Link href="/favoris">

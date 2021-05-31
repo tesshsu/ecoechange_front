@@ -62,6 +62,9 @@ const AnnonceDetail = ({
 							</button>
 						): (<FavorisButton category="idea" entity_id={idea?.id} action={onClickFavoris}/>)}
 					</span>
+					{idea?.favorite_count >= 1 &&(
+						<span className="text-md px-2 text-green-500">{idea?.favorite_count} likes</span>
+					)}
 				</h4>
 				<div className="text-xl text-green-500 px-4 py-2 rounded-full shadow-lg text-center">
 					<span className="category">{idea?.category}</span> - <span className="sub_category">{idea?.sub_category}</span>

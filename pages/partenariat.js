@@ -69,7 +69,7 @@ export default function Prix() {
                           <div className="px-6">
                               <img alt="partenariat1"
                                    src={listsPartenaire.photo}
-                                   className="shadow-lg rounded-lg mx-auto max-w-180-px"
+                                   className="partenaireImg shadow-lg rounded-lg mx-auto max-w-180-px"
                               />
                               <div className="pt-6 text-center"><h5 className="text-2xl font-bold">{listsPartenaire.name}</h5><p
                                   className="mt-1 text-md text-blueGray-400 uppercase font-semibold">{listsPartenaire.region}</p>

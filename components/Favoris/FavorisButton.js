@@ -15,7 +15,7 @@ export default function FavorisButton(props) {
     const [isClick, setIsClick] = React.useState(false);
 
     const style = {
-        color: isClick ? '#48bb78' : '#eee',
+        color: isClick ? '#fff' : '#a7a8aa',
     }
 
     const onClickFavoris = (e) => {
@@ -41,11 +41,11 @@ export default function FavorisButton(props) {
     return (
         <>
             <button
-                className="bg-gray-600 w-8 h-8 rounded-full outline-none focus:outline-none ml-2 mb-1"
+                className="bg-green-500 w-8 h-8 rounded-full outline-none focus:outline-none ml-2 mb-1"
                 type="button"
                 onClick={onClickFavoris}
             >
-                <i className="fas fa-bookmark" style={style}> </i>
+                <i className="fas fa-heart" style={style}> </i>
             </button>
             {isClick ? <span className="text-xs text-gray-500"> Ajoutées</span> : null}
         </>

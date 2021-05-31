@@ -118,10 +118,10 @@ export default function dataPersonal() {
 					  <ul>
 					    <li>Gérer votre compte utilisateur</li>
 						<li>Vous envoyer, avec votre accord lorsque la règlementation l’exige, des messages publicitaires personnalisés, notamment des actualités sur notre société</li>
-						<li>Données à ideaactère personnel</li>
+						<li>Données à caractère ideaactère personnel</li>
 						<li>Mener des activités de recherche et développement</li>
 						<li>Ce traitement est fondé sur nos obligations légales et implique notamment la vérification de votre identité.</li>
-					    <li>Ce traitement est justifié par la relation pré contractuelle résultant de votre demande.</li>
+					    <li>Ce traitement est justifié par la relation précontractuelle résultant de votre demande.</li>
 					  </ul>
 					  <h4 className="text-2xl font-semibold leading-normal mb-2 text-gray-800 mb-2">
 					   Combien de temps sont conservées vos données ?
@@ -133,7 +133,7 @@ export default function dataPersonal() {
 					   Qui a accès à vos données ?
 					  </h4>
 					   <p className="mb-4 text-lg leading-relaxed text-gray-800">
-                        Nous pouvons être amenés à partager vos données personnelles avec nos sous-traitants, tels que stripe, autovisual, afin de traiter tout ou partie de vos données personnelles, dans la limite nécessaire à l’accomplissement des tâches qui leur sont confiées (par exemple, pour l’hébergement de notre site internet ou application mobile, pour la fourniture de services liés à l’exploitation ou la maintenance du site internet, fourniture de services concernant l’inspection du véhicule, l’envoi de messages).
+                        Nous pouvons être amenés à partager vos données personnelles avec nos sous-traitants, afin de traiter tout ou une partie de vos données personnelles, dans la limite nécessaire à l’accomplissement des tâches qui leur sont confiées (par exemple, pour l’hébergement de notre site internet ou application mobile, pour la fourniture de services liés à l’exploitation ou la maintenance du site internet, fourniture de services concernant l’inspection du véhicule, l’envoi de messages).
                        </p>
 					  <h4 className="text-2xl font-semibold leading-normal mb-2 text-gray-800 mb-2">
 					   Vos droits
@@ -145,7 +145,7 @@ export default function dataPersonal() {
 					    <li>Un droit d'accès à vos données personnelles, c’est-à-dire le droit d’en recevoir une copie</li>
 						<li>Un droit de rectification, si vos données s’avéraient erronées ou périmées, ce qui nous permettra de nous conformer à notre obligation d’avoir des données à jour vous concernant,</li>
 						<li>Un droit à l’effacement (ou droit à l’oubli) de vos données personnelles, lequel peut être limité au regard de nos obligations contractuelles ou légales,</li>
-						<li>Un droit d’opposition, sous réserve de justifier de raisons tenant à votre situation particulière, et du droit de demander la limitation du traitement de vos données personnelles, dans certains cas prévus par la règlementation,</li>
+						<li>Un droit d’opposition, sous réserve de justifier de raisons tenant à votre situation particulière, et du droit de demander la limitation du traitement de vos données personnelles, dans certains cas prévus par la réglementation,</li>
 						<li>Un droit de retirer votre consentement à tout moment, pour les finalités pour lesquelles nous avons collecté votre consentement.</li>
 
 					  </ul>

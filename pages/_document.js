@@ -18,6 +18,8 @@ class MyDocument extends Document {
             sizes="76x76"
             href={require("assets/img/brand/apple-icon.png")}
           />
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.css" />
+          <link href="https://unpkg.com/leaflet-geosearch@latest/assets/css/leaflet.css" rel="stylesheet" />
         </Head>
         <body className="text-gray-800 antialiased">
           <div id="page-transition"></div>

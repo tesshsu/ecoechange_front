@@ -42,12 +42,12 @@ const Vendre = ({
         <>
             <IndexNavbar fixed/>
             <main className="vendre-page">
-                <section className="postBlock relative py-16 mt-48">
+                <section className="postBlock relative py-16">
                     <div
                         className="container mx-auto px-4 bg-center bg-cover"
                         style={{
                             backgroundImage:
-                                "url('https://i.ibb.co/LSNWFgF/1.jpg')",
+                                "url('https://i.ibb.co/Ns8bDZj/ecobg.jpg')",
                         }}
                     >
                         <div
@@ -73,11 +73,12 @@ const Vendre = ({
                                 <div className="flex flex-wrap justify-center">
                                     <div className="w-full lg:w-12/12 px-4 lg:order-1">
                                         <p className="text-gray-900">
-                                            Un vendeur professionnel se faisant passer pour un consommateur ou un non-professionnel sur Vinted encourt les sanctions prévues à <a
+                                            Un vendeur professionnel se faisant passer pour un consommateur ou un non-professionnel sur Ecoechange encourt les sanctions prévues à <a
                                             href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000032227120/"
                                             className="text-blue-500"
                                         >l'Article L. 132-2 du Code </a> de la Consommation.
                                         </p>
+                                        <p className="text-gray-900">Plateforme de mise en relation. Aucune vente directe sur notre site.</p>
                                     </div>
                                 </div>
                             </div>

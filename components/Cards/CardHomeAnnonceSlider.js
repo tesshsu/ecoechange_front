@@ -22,18 +22,18 @@ const CardHomeAnnonceSlider = ({ dispatch,
 		className: "annoceSlider",
 		infinite: true,
 		speed: 500,
-		slidesToShow: 5,
+		slidesToShow: 6,
 		slidesToScroll: 1,
 		responsive: [
 			{
 				breakpoint: 600,
 				settings: {
-					slidesToShow: 2,
+					slidesToShow: 1,
 					slidesToScroll: 1,
 					initialSlide: 1,
 					dots: false,
 					autoplay: true,
-					autoplaySpeed: 500
+					autoplaySpeed: 2500
 				}
 			}
 		]

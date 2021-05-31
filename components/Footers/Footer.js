@@ -29,9 +29,17 @@ export default function Footer() {
             <div className="w-full lg:w-6/12 px-4">
               <h4 className="text-3xl font-semibold">ecoechange.com</h4>
               <h5 className="text-lg mt-0 mb-2 text-gray-700">
-                  Faciliter votre vie éco et protège planète
+                  Faciliter votre vie éco et protèger notre planète
               </h5>
               <div className="mt-6 lg:mb-0 mb-6">
+                  <button
+                      className="bg-white text-green-500 font-normal h-10 w-10 items-center justify-center align-center outline-none focus:outline-none mr-2"
+                      type="button"
+                  >
+                      <a href="https://twitter.com/ecoechange"  target="_blank">
+                          <i className="fab fa-twitter"></i>
+                      </a>
+                  </button>
                 <button
                   className="bg-white text-green-500 font-normal h-10 w-10 items-center justify-center align-center outline-none focus:outline-none mr-2"
                   type="button"
@@ -78,7 +86,7 @@ export default function Footer() {
 							className="text-gray-600 hover:text-gray-900 font-semibold block pb-2 text-sm"
 							href="#"
 						  >
-							CONTACT
+							REJOIGNEZ-NOUS
 						  </a>
 					  </Link>
                     </li>

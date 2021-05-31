@@ -38,13 +38,16 @@ const Favoris = ({ dispatch,
                             </button>
                         </Link>
                         <div className="flex flex-wrap">
-                            <h4 className="ml-4 font-bold text-lg text-gray-700 mt-4">Les idées favorites sauvegardées</h4>
+                            <h4 className="ml-4 font-bold text-lg text-gray-700 mt-4">Vos coups de coeur</h4>
                             <AnnonceFavoris transparent/>
                             { total == 0  ? (
                                 <div className="container mx-auto text-center">
                                     <h5 className="text-xl font-semibold pb-4">
-                                        Vous n'avez pas encore des annonces favoris !!
+                                        Vous n'avez pas encore sauvegardées d'annonces
                                     </h5>
+                                    <p className="text-md font-semibold pb-4">
+                                        vous pouvez encourager des initiatives en cliquant sur le bouton <i className="fas fa-heart"></i>
+                                    </p>
                                     <button
                                         className="bg-green-500 text-white active:bg-gray-700 text-xs font-bold uppercase px-3 py-2 rounded-full shadow hover:shadow-lg outline-none focus:outline-none  ease-linear transition-all duration-150"
                                         type="button"
@@ -56,7 +59,7 @@ const Favoris = ({ dispatch,
                                                     "text-xl py-1 px-4 font-normal block w-full whitespace-no-wrap font-bold bg-transparent text-white-500"
                                                 }
                                             >
-                                                <i className="fas fa-arrow-circle-right animate-ping"></i> Voir annonces
+                                                <i className="fas fa-arrow-circle-right animate-ping"></i> VOIR LES ANNONCES
                                             </a>
                                         </Link>
                                     </button>

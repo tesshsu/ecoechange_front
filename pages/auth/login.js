@@ -136,6 +136,7 @@ export default function Login() {
                                 />
                                 <p className="notifyForLogin text-sm leading-relaxed text-green-500 text-left"> <i className="fas fa-feather"> </i> Cette connexion vous permet de déposer et gérer vos publications.</p>
                                 <p className="notifyForLogin text-sm leading-relaxed text-green-500 text-left mt-2"> <i className="fas fa-bookmark"> </i> Ajouter vos idées en favoris.</p>
+                                <p className="notifyForLogin text-sm leading-relaxed text-green-500 text-left mt-2"><i className="fas fa-envelope-open-text"></i> Recevoir des notifications, des newsletters.</p>
                             </div>
                         </div>
                         <div className="loginBottom flex flex-wrap text-white relative">
