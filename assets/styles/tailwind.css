@@ -607,6 +607,52 @@ video {
 }
 /* for portable part*/
 @media (max-width: 468px) {
+  .QAtitle{
+    margin-top: 10rem!important;
+  }
+  .sliderQA{
+    display: none!important;
+  }
+  .qaBlock{
+    margin-top: 20rem!important;
+  }
+  .iconPartQA{
+    display: none!important;
+  }
+  .home-page .titleMap{
+    font-size: 1.5rem !important;
+    margin-top: 1rem !important;
+  }
+  .home-page .header{
+     margin: 7rem 0 3rem 0;
+  }
+  #blackOverlay{
+    width: 110% !important;
+  }
+  .contactForm h1{
+    font-size: 2rem !important;
+  }
+  .contactForm h4{
+    font-size: 1rem !important;
+  }
+  .contactForm h5{
+    font-size: 0.75rem !important;
+  }
+  .categoryText{
+    font-size: 1.65rem !important;
+  }
+  .homeTopbg{
+    display: none;
+  }
+  .annonceHomeImge{
+     width: 20rem !important;
+  }
+  .blockConcept{
+    height: auto !important;
+  }
+  .bigBlocktop{
+    display: none !important;
+  }
   .formBlock h4{
     font-size: 1rem !important;
   }
@@ -651,7 +697,7 @@ video {
     padding-right: 0.25rem !important;
   }
   .ecoMenu{
-    margin-top: -2.5rem;
+    margin-top: 2rem;
   }
   .classic-myannonce-block{
     margin-top: 0.25rem !important;
@@ -725,6 +771,10 @@ video {
   }
   .contact-page .contact-section{
     height: 40vh;
+  }
+  .home-page .top-block{
+    margin: 12rem 0 5rem 0 !important;
+    padding: 0 !important;
   }
   .home-page .top-block .h-screen{
     height: 95vh;
@@ -802,7 +852,7 @@ video {
     display: flex;
   }
   .home-page .top-block{
-    height: 60vh;
+
   }
 }
 
@@ -2063,6 +2113,10 @@ video {
   height: 600px;
 }
 
+.h-700-px {
+  height: 700px;
+}
+
 .text-55 {
   font-size: 55rem;
 }
@@ -2133,6 +2187,10 @@ video {
 
 .list-none {
   list-style-type: none;
+}
+
+.list-square {
+  list-style-type: square;
 }
 
 .m-1 {
@@ -2436,6 +2494,10 @@ video {
 
 .min-h-screen-75 {
   min-height: 75vh;
+}
+
+.min-h-screen-35 {
+  min-height: 35vh;
 }
 
 .min-w-0 {
@@ -4043,6 +4105,7 @@ video {
 /*pages layout*/
 .home-page .top-block{
   margin-bottom: 10rem;
+  padding: 0 5rem;
 }
 .slick-prev:before, .slick-next:before{
   color: #48bb78 !important;
@@ -4068,8 +4131,8 @@ video {
 }
 .topImage{
   position: absolute;
-  top: -10px;
-  left: -20px;
+  top: 30px;
+  right: -20px;
   width: 100px;
 }
 .togBadge{
@@ -4347,7 +4410,46 @@ stripPaymentBlock .StripeElement {
 .EcoVideo{
   max-width: 40rem;
   max-height: 26rem;
+  margin: 0 auto;
 }
 .okpalBlock{
 	margin: 0 auto;
+}
+.partenaireImg{
+  width: 30rem;
+}
+.blockConcept{
+  height: 38rem;
+}
+ .vendre-page .postBlock{
+    margin-top: 20rem;
+  }
+ .categoryText{
+   position: absolute;
+   top: 9.5rem;
+   margin-left: 20px;
+ }
+.logoEco{
+	max-width: 130px;
+}
+.blogFunctions i{
+  padding: 0 5px;
+}
+.custom-marker{
+  background-color: #48bb78;
+  color: #fff;
+  padding: 5px;
+  display: inline-flex;
+  textAlign: center;
+  alignItems: center;
+  justifyContent: center;
+}
+.markerMap{
+  width: 30px;
+}
+.mapImg{
+  max-height: 15rem;
+}
+.mapImgHome{
+  max-height: 12rem;
 }

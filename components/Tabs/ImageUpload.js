@@ -95,8 +95,11 @@ const ImageUpload= ({
     )
 
     const onChange = async (imageList, addUpdateIndex) => {
+
+        console.log(imageList, addUpdateIndex);
+
         // check for images to removed
-        if(idea?.length > 0){
+        if(images?.length > 0){
             let currentImagesIds = imageList.map(i => i.id);
             let imagesRemoved = images.filter(img => !currentImagesIds.includes(img.id));
             if(imagesRemoved.length > 0){
@@ -149,7 +152,7 @@ const ImageUpload= ({
                                 component={ImgUploadAdapter}
                             />
                         </div>
-                        {images?.length > 0 && router.pathname === '/vendre' ? (
+                        {images?.length > 0 && router.pathname === '/partager' ? (
                             <Link href={idea?.id ? (`/annonce?id=${idea?.id}`) : ("#")} {...idea}>
                                 <button
                                     className="bg-green-500 text-white active:bg-gray-700 text-sm font-bold uppercase px-12 py-4 my-4 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"

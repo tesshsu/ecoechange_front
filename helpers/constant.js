@@ -1,3 +1,49 @@
+export const data = {
+    city: [
+        { id:"144", name: "TRANSPORTS & TRAVAUX ÉCOLOGIQUES", coordinates: [1.8006447, 43.0270155], category: 'Service', src: require('assets/img/boutique/AUDREY_ROUSSEL_TRAITEUR.jpg') },
+        { id:"141", name: "OBAMSBAGS crée des sacs à partir des jeans usagés", coordinates: [1.4713795, 43.5376371], category: 'Mode', src: require('assets/img/boutique/obamsbags3.png') },
+        { id:"142", name: "Savon saponifié à froid et soin bio", coordinates: [1.4478023, 43.6089552], category: 'produit salle de bain', src: require('assets/img/boutique/Louise émoi2.jpg') },
+        { id:"143", name: "Traiteur, blog de cuisine", coordinates: [1.4569639, 43.593418], category: 'livraison alimentaire à domiciles', src: require('assets/img/boutique/AUDREY ROUSSEL TRAITEUR.jpg') },
+        { id:"140", name: "FIL & CIE BOUTIQUE PORTEUSE DE SENS", coordinates: [6.0295896, 47.2481765], category: 'Mode', src: require('assets/img/boutique/Fil&Cie2.jpg') },
+        { id:"139", name: "L'AVANTURE NOUDT", coordinates: [6.0295896, 47.2481765], category: 'Cuisine et Alimentation', src: require('assets/img/boutique/AventureNoudt.jpg') },
+        { id:"138", name: "BRASSERIE DU COMTÉ", coordinates: [7.2413367, 44.0767435], category: 'Cuisine et Alimentation', src: require('assets/img/boutique/AventureNoudt.jpg') },
+        { id:"79", name: "TERRA-SILVA", coordinates: [1.025568, 44.0619386], category: 'Boutique écologique', src: require('assets/img/boutique/Terra-Silva-jouet-bois.jpg') },
+        { id:"37", name: "J'M LE BIO", coordinates: [2.3497389, 48.8496462], category: 'Boutique écologique', src: require('assets/img/boutique/JMBio.png') },
+        { id:"32", name: "GREEN BOWL RESTAURANT 100% FAIT MAISON", coordinates: [5.4515307, 43.5283258], category: 'Boutique écologique', src: require('assets/img/boutique/greenBowl.jpg') },
+        { id:"36", name: "PÂTISSERIES TOUTE LA JOURNÉE", coordinates: [4.8386557, 45.747596], category: 'Boutique écologique', src: require('assets/img/boutique/patisseries.jpg') },
+        { id:"28", name: "FERME DES SAISON", coordinates: [5.8206025, 45.1947888], category: 'ferme locale', src: require('assets/img/boutique/ferme.png') },
+        { id:"25", name: "FRÉDÉRIC TISON - TRAVAUX D'INTÉRIEUR", coordinates: [3.0532845, 50.629762], category: 'service', src: require('assets/img/boutique/Travaux.png') },
+        { id:"19", name: "ÉPICERIE D'ANTAN 100% VRAC", coordinates: [3.8759533, 43.6058002], category: 'Boutique écologique', src: require('assets/img/boutique/epicerie.png') },
+        { id:"16", name: "DAY BY DAY - MON ÉPICERIE EN VRAC", coordinates: [1.4272676, 43.5970514], category: 'Cuisine et Alimentation', src: require('assets/img/boutique/dayByDay.png') },
+        { id:"31", name: "MAESTRIA FORMATION MASSAGE BIEN ÊTRE NICE", coordinates: [7.2317009, 43.6902957], category: 'Atelier', src: require('assets/img/boutique/message.jpg') },
+        { id:"122", name: "LES BEAUTÉS VAGABONDES", coordinates: [6.940755, 43.6450076], category: 'Beauté', src: require('assets/img/boutique/beautes-vagabondes.jpg') },
+        { id:"23", name: "FURAHAA TO GO - VEGAN", coordinates: [2.3516597, 48.8665117], category: 'service', src: require('assets/img/boutique/togo.png') },
+        { id:"21", name: "L'ATELIER DE BRICE | FLEURISTE", coordinates: [-1.5468674, 47.2119062], category: 'atelier', src: require('assets/img/boutique/fleuriste.png') },
+        { id:"18", name: "ÉPICERIE SANS EMBALLAGES", coordinates: [-0.5712398, 44.8371968], category: 'boutique écologique', src: require('assets/img/boutique/fleuriste.png') },
+        { id:"153", name: "JULIEN ROSTAN", coordinates: [6.9573407, 43.5561246], category: 'ferme', src: require('assets/img/boutique/julien_rostan.jpg') },
+        { id:"133", name: "AU VERGER SAINT JOSEPH", coordinates: [7.2563048, 44.0703033], category: 'Divers', src: require('assets/img/boutique/verger.jpg') },
+        { id:"158", name: "SAVONNERIE DE LA FOUX", coordinates: [7.5066406, 43.7764629], category: 'Cuisine et Alimentation', src: require('assets/img/boutique/huilerie.jpg') },
+        { id:"161", name: "La Plume Blanche", coordinates: [7.0827226, 43.7224804], category: 'Ferme locale', src: require('assets/img/boutique/LaPlumeBlanche.jpg') },
+        { id:"162", name: "Le Club des Simone", coordinates: [7.2736125, 43.7024724], category: 'Magasin de vêtements', src: require('assets/img/boutique/clubSimone.jpg') },
+        { id:"163", name: "La Chèvrerie du Bois d'Amon", coordinates: [6.8118691, 43.6505095], category: 'Ferme locale', src: require('assets/img/boutique/chevre.jpg') },
+        { id:"164", name: "Le Clos de Laure", coordinates: [7.259249, 43.6995951], category: 'Boutique écologique', src: require('assets/img/boutique/leClosLaure.jpg') },
+        { id:"167", name: "Lenoir Azur Spiruline", coordinates: [6.9573407, 43.5561246], category: 'Cuisine et Alimentation', src: require('assets/img/boutique/lenoirAzur.jpg') },
+        { id:"168", name: "CABANE DU 12", coordinates: [7.2747382, 43.7013641], category: 'Boutique écologique', src: require('assets/img/boutique/cabane_du_12.jpg') },
+        { id:"169", name: "JEAN DE LA TOMATE", coordinates: [7.2754301, 43.7010559], category: 'Boutique écologique', src: require('assets/img/boutique/jean-de-la-tomate-epicerie-locavore-nice16.jpg') },
+        { id:"170", name: "Chez Carotte", coordinates: [7.310066998243805, 43.704701650000004], category: 'Boutique écologique', src: require('assets/img/boutique/chez carotte.png') },
+        { id:"175", name: "MOULIN D'OPIO", coordinates: [6.9847874, 43.6695219], category: 'Cuisine et Alimentation', src: require('assets/img/boutique/moulinOpio.jpg') },
+        { id:"177", name: "PASTA PIEMONTE", coordinates: [7.5000897, 43.7747545], category: 'Cuisine et Alimentation', src: require('assets/img/boutique/pasta piemonte.jpg') },
+        { id:"178", name: "PRODUCTEURS DU 06", coordinates: [7.110672, 43.7208289], category: 'Boutique écologique', src: require('assets/img/boutique/produ 06.jpg') },
+        { id:"181", name: "Antonin Streitz domaine de Peyrebelle", coordinates: [6.999405, 43.6310772], category: 'Cuisine et Alimentation', src: require('assets/img/boutique/domaine pey 2.jpg') },
+        { id:"171", name: "NOUGATS, PISSALADIÈRES FAIT MAISON", coordinates: [6.9232626, 43.6583544], category: 'Boutique écologique', src: require('assets/img/boutique/fougassette.jpg') },
+        { id:"182", name: "Savon à froid Calendula" , coordinates: [2.08843, 43.61973], category: 'Boutique écologique', src: require('assets/img/boutique/savon-calendula-louiseemoi.jpg') }
+    ],
+    minLat: 46.232193,
+    maxLat: 46.227638,
+    minLong: 2.213749,
+    maxLong: 2.213749
+};
+
 //page questions part
 export const renderSwitchNoteEco = (param) => {
     switch (param) {
@@ -135,6 +181,15 @@ export const listsNoteEcos = [
     {note: require("assets/img/note/4.png"), name:"+4 Leaves", detail: "Pour chaque idée mise en favori"}
 ];
 
+export const listsSliderHomes = [
+    {url: require("assets/img/slider/ecoechange_slider_1.png") , name:"+1 Leaf", detail: "Publication d’une idée"}
+];
+
+export const listsSliderQAs = [
+    {url: require("assets/img/slider/ecoechange_slider_3.png") , name:"qa1"},
+    {url: require("assets/img/slider/ecoechange_slider_6.png") , name:"qa2"}
+];
+
 export const listsPartenaires = [
     {photo:"https://www.provence7.com/wp-content/uploads/2016/11/St-Vallier-2-Fotolia_758874.jpg", name:"Saint vallier de thiey", region:"ALPES MARITIMES", detail: "Saint-Vallier-de-Thiey est une commune française située dans le département des Alpes-Maritimes en région Provence-Alpes-Côte d'Azur. ", url:"https://saintvallierdethiey.com/", location:"https://www.google.com/maps?q=Saint+vallier+de+thiey&um=1&ie=UTF-8&sa=X&ved=2ahUKEwiny5emjdrvAhUnz4UKHUGdCKoQ_AUoAXoECAEQAw"},
     {photo:"https://www.provence7.com/wp-content/uploads/2015/02/Mougins-1B-Fotolia_38058220.jpg", name:"publiez votre idée/astuce", region:"ALPES MARITIMES", detail: "La commune, historiquement paysanne spécialisée dans la cueillette de jasmin, est aujourd'hui massivement urbanisée par une abondance de villas de style néo-provençal du fait de l'étalement urbain, qui lui vaut son surnom de ville-jardin. ", url:"https://saintvallierdethiey.com/", location:"https://www.google.com/maps?q=Saint+vallier+de+thiey&um=1&ie=UTF-8&sa=X&ved=2ahUKEwiny5emjdrvAhUnz4UKHUGdCKoQ_AUoAXoECAEQAw"},
@@ -149,7 +204,9 @@ export const listsAboutPageEquipes = [
     {photo: require("assets/img/team/fanny.jpg"), name:"Fanny", line:"https://www.linkedin.com/in/fanny-mabillon-b4a202199/"},
 	{photo: require("assets/img/team/julien.jpg"), name:"Julien", line:"https://www.linkedin.com/in/julien-darmanthe/"},
     {photo: require("assets/img/team/Chanelle.jpg"), name:"Chanelle", line:"https://ecoechange.com/"},
-    {photo: require("assets/img/team/THEODORE.jpg"), name:"Theodore", line:"https://www.linkedin.com/in/theodorentongo/"}
+    {photo: require("assets/img/team/THEODORE.jpg"), name:"Theodore", line:"https://www.linkedin.com/in/theodorentongo/"},
+    {photo: require("assets/img/team/Clotilde.jpg"), name:"Clotilde", line:"https://www.linkedin.com/in/clotilde-vadot-748820145/"},
+    {photo: require("assets/img/team/ocean.png"), name:"Océane", line:"https://www.linkedin.com/in/oc%C3%A9ane-chenain-0231a41b6/?originalSubdomain=fr"}
 ];
 
 

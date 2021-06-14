@@ -133,11 +133,10 @@ export default class MyApp extends App {
                 <Head>
                     <meta
                         name="viewport"
-                        content="width=device-width, initial-scale=1, shrink-to-fit=no"
-                    />npm r
-                    <meta name="viewport" content="width=device-width, initial-scale=1" />
-                    <meta name="description" content="Publiez vos idées écologiques, Lancez votre idée / vendre, service, atelier écologique, local, natural afin de vendre ou échanger plus facilement sur votre mode de vie écologique ou zéro déchet." />
-                    <title>ecoechange.com</title>
+                        content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no, maximum-scale=1"
+                    />
+                    <meta name="description" content="La plateforme du partage d’idées écologiques. Astuces, recettes, adresses et savoir-faire dans le respect de la Terre.Professionnel ou particulier, partagez et venez découvrir les nouveautés d’acteurs engagés.Participer à la culture du partage et à la transition écologique." />
+                    <title>ecoechange | Une plateforme, des milliers d'idées écologiques </title>
                 </Head>
                 <Provider store={store}>
                     <Layout>

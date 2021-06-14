@@ -88,7 +88,7 @@ const IndexDropdown = () => {
         >
           No Layout
         </span>
-		<Link href="/vendre">
+		<Link href="/partager">
           <a
             href="#pablo"
             className={

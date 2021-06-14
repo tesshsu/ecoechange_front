@@ -99,11 +99,9 @@ export default function Contact() {
                                             <div className="w-full lg:w-6/12 px-4">
                                                 <label className="block uppercase text-gray-700 text-xs font-bold mb-2 mt-4">Concernant</label>
                                                 <select name="from_concernant" id="from_concernant">
-                                                    <option value="votre compte">votre compte</option>
-                                                    <option value="votre idée">à propos de vos idées</option>
+                                                    <option value="demande nous mettre votre idee sur le plateform">demande mettre votre idées</option>
                                                     <option value="demande partenaire">demande de partenariat</option>
-                                                    <option value="demande nous mettre votre idee sur le plateform">demande mettre votre idee</option>
-                                                    <option value="demande nous mettre votre idee sur le plateform">supprimer votre compte</option>
+                                                    <option value="demande nous supprimer votre compte">supprimer votre compte/annonce</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -120,7 +118,9 @@ export default function Contact() {
                                             type="submit"
                                             value="Allons-y"
                                         />
-                                        <h4 className="text-gray-800 text-center">Vous pouvez nous rejoindre directement </h4>
+                                        <h4 className="text-gray-800 text-md text-center">Vous pouvez nous rejoindre directement </h4>
+                                        <p className="text-green-500 text-xs text-center">Etant donné que votre enseigne partage nos valeurs, nous pouvons vous créer un compte et une annonce sur ÉcoÉchange, afin de vous promouvoir! Les informations contenues dans votre publicité sont les informations que nous avons trouvées dans les informations publiques via Internet.
+                                            Merci de préciser votre activité ( votre Facebook/site internet/google ) pour que nous puissions créer un compte et une annonce sur ÉcoÉchange!</p>
                                         <div className="flex items-center text-center">
                                             <Link href="/auth/register">
                                                 <a

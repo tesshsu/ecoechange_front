@@ -1,7 +1,5 @@
 import React from "react"
 import { connect } from "react-redux"
-// import CardAnnonceMap from "../../Cards/CardAnnonceMap"
-import CardAnnonceSlider from "../../Cards/CardAnnonceSlider"
 import dynamic from "next/dynamic"
 const DetailsDropdown = ({ dispatch, loading, idea }) => {
     const address_boutique = idea?.shop_address ? idea.shop_address : "none"
@@ -23,7 +21,7 @@ const DetailsDropdown = ({ dispatch, loading, idea }) => {
     const Map = dynamic(
         () => import("../../Cards/CardAnnonceMap"), // replace '@components/map' with your component's location
         {
-            loading: () => <p>A map is loading</p>,
+            loading: () => <p>Téléchargements en cours...</p>,
             ssr: false, // This line is important. It's what prevents server-side render
         }
     )
@@ -52,7 +50,12 @@ const DetailsDropdown = ({ dispatch, loading, idea }) => {
                         </div>
                     </div>
                 ))}
-                <Map />
+                {idea?.shop_address&&(
+                    <div className="w-full px-4">
+                        <Map />
+                        <p className="text-sm text-gray-600 ml-2"><i className="fas fa-info animate-bounce"></i> Certaines localisations peuvent ne pas s'afficher correctement</p>
+                    </div>
+                )}
             </div>
         </>
     )

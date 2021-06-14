@@ -6,6 +6,8 @@ import Footer from "components/Footers/Footer.js";
 import CardHomeCategorySlider from "../components/Cards/CardHomeCategorySlider";
 import {filterIdeas} from '../service/actions/ideas';
 import {useRouter }  from "next/router";
+import CardHomeSlider from "../components/Cards/CardHomeSlider";
+import dynamic from "next/dynamic"
 
 const Index = ({ dispatch,
                    loading,
@@ -18,6 +20,15 @@ const Index = ({ dispatch,
                    total,
                    hasErrors}) => {
     const router = useRouter();
+
+    const Map = dynamic(
+        () => import("../components/Cards/CardAnnoncesMap"), // replace '@components/map' with your component's location
+        {
+            loading: () => <p>Téléchargements en cours...</p>,
+            ssr: false, // This line is important. It's what prevents server-side render
+        }
+    )
+
     useEffect(() => {
         const postal_code= router.query.postal_code ? router.query.postal_code : '';
         const category= router.query.category ? router.query.category : '';
@@ -35,8 +46,9 @@ const Index = ({ dispatch,
     <>
       <IndexNavbar fixed />
       <main className="home-page">
-	  <section className="top-block header relative pt-16 items-center flex">
-		<div className="cote-form-block b-auto right-100 pt-16 -mt-48 sm:mt-0 w-12/12  z-40" >
+          <CardHomeSlider />
+	  <section className="header relative pt-4 text-center items-center">
+		<div className="cote-form-block b-auto pt-4 -mt-32 sm:mt-0 w-12/12  z-40" >
                 <div className="relative flex flex-col min-w-0 break-words w-full mb-6 bg-green-500-opcity">
                   <div className="flex-auto p-5 lg:p-10">
                       <h1 className="font-bold text-4xl text-orange-700">
@@ -50,51 +62,19 @@ const Index = ({ dispatch,
                         <i className="fas fa-feather animate-bounce"></i> | <i className="far fa-paper-plane animate-bounce"></i> | <i
                         className="fas fa-clipboard-list"></i> C’est si simple !
                     </h4>
-					<div className="bigBlocktop flex flex-wrap mt-4">
-                        <button
-                            className="bg-green-500 text-white active:bg-gray-700 text-xs font-bold uppercase px-12 py-16 rounded-full shadow hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150"
-                            type="button"
-                        >
-                            <Link href="/vendre">
-                                <a
-                                    href="#pablo"
-                                    className={
-                                        "text-3xl py-1 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-white-500"
-                                    }
-                                >
-                                    Partager
-                                </a>
-                            </Link>
-                        </button>
-                        <button
-                            className="bg-gray-800 text-white active:bg-gray-700 text-xs font-bold uppercase px-12 py-16 rounded-full shadow hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150"
-                            type="button"
-                        >
-                            <Link href="/annonces">
-                                <a
-                                    href="#pablo"
-                                    className={
-                                        "text-3xl py-1 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-white-500"
-                                    }
-                                >
-                                    Découvrir
-                                </a>
-                            </Link>
-                        </button>
-					</div>
                 </div>
             </div>
         </div>
-        <img
-          className="homeTopbg bgImg absolute top-0 b-auto right-0 pt-16 sm:w-6/12 -mt-48 sm:mt-0 w-10/12 max-h-860-px"
-          src={require("assets/img/pattern_nextjs.png")}
-          alt="..."
-        />
       </section>
 
-	  <section className="compare-block mt-48 md:mt-40 relative bg-white">
+	  <section className="compare-block mt-4 relative bg-white">
+          <h4 className="titleMap text-4xl text-center text-green-500">Explorez les idées proches de vous <i
+              className="fas fa-map-signs animate-bounce"></i></h4>
+          <Map />
+          <p className="text-md text-center text-gray-400">Cliquer sur les feuilles pour voir les détails <i
+              className="fas fa-leaf animate-bounce"></i> </p>
           <CardHomeCategorySlider />
-          <div className="mx-auto px-4 pb-8 mt-12">
+          <div className="mx-auto px-4 pb-8 mt-4">
               <div className="text-center mt-2">
                   <button
                       className="bg-green-500 text-white active:bg-gray-700 text-xs font-bold uppercase px-4 py-2 rounded-full shadow hover:shadow-lg outline-none focus:outline-none ease-linear transition-all duration-150"
@@ -170,7 +150,7 @@ const Index = ({ dispatch,
                   </h4>
                   <p className="text-md font-light mt-2 text-white">
                       Vous disposerez de produits, services, ateliers ou boutiques liés à l'écologie et à l'environnement naturel local ?
-                      <Link href="/vendre">
+                      <Link href="/partager">
                           <button
                                   className="bg-white text-gray-700 active:bg-gray-700 text-xs font-bold uppercase px-4 py-2 rounded-full shadow hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150"
                                   type="button"

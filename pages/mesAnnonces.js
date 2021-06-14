@@ -46,7 +46,7 @@ const MesAnnonces = ({
                                         className="bg-green-500 text-white active:bg-gray-700 text-xs font-bold uppercase px-3 py-2 rounded-full shadow hover:shadow-lg outline-none focus:outline-none  ease-linear transition-all duration-150"
                                         type="button"
                                     >
-                                        <Link href="/vendre">
+                                        <Link href="/partager">
                                             <a
                                                 href="#pablo"
                                                 className={

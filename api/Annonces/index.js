@@ -19,13 +19,12 @@ export function search(perPage, page, owner) {
       .then(({ data }) => data);
 }
 
-export function filter(perPage, page, postal_code, category, sub_category, owner_type, usage, experience_eco ) {
+export function filter(perPage, page, postal_code, category, owner_type, usage, experience_eco ) {
   let url = `/api/v1/ideas/search?`;
   url += perPage ? 'perPage=' + perPage  : '',
       url += page ? '&page=' + page  : '',
       url += postal_code ? '&postal_code=' + postal_code  : '',
       url += category ? '&category=' + category  : '',
-      url += sub_category ? '&sub_category=' + sub_category  : '',
       url += owner_type ? '&owner_type=' + owner_type  : '',
       url += usage ? '&usage=' + usage  : '',
       url += experience_eco ? '&experience_eco=' + experience_eco  : '';
@@ -44,7 +43,7 @@ export async function addPhoto(ideaId, payload) {
 }
 
 export function removePhoto(ideaId, payload) {
-  payload.car_id = ideaId;
+  payload.idea_id = ideaId;
   return client
       .delete(`/api/v1/ideas/${ideaId}/uploads/${payload.id}`, payload)
       .then(({data}) => data);

@@ -12,11 +12,11 @@ export default function PubContentConnection() {
 					  Veuillez vous connecter avant de partager vos idées
 				  </h1>
 				  <p className="text-md leading-relaxed text-gray-700">
-					  Publiez vos réflexions pour partager, communiquer, rencontrer <i
+					  Publiez vos idées pour partager, communiquer, rencontrer <i
 					  className="fas fa-mortar-pestle"></i>
 				  </p>
 				  <p className="text-md mt-2 leading-relaxed text-gray-700">
-					  Trouvez des produits 100% locaux, Vendez également vos produits locaux <i
+					  Trouvez ou vendez des produits 100% locaux et éco-responsables <i
 					  className="fas fa-seedling"></i>
 				  </p>
 			  </div>

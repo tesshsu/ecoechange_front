@@ -22,7 +22,7 @@ export default function Register() {
       const data = { ...payload };
       await register(data);
 	  if(data){
-		 Router.push("/vendre");
+		 Router.push("/partager");
 	  }
     } catch (err) {
       console.log(err.response);

@@ -5,9 +5,6 @@ import {
 	useOptions,
 	statuVendeurOptions
 } from 'helpers/constant'
-import {
-	categoryFilterOptions
-} from "../../helpers/constantCategory"
 import {filterIdeas} from 'service/actions/ideas';
 import {connect} from "react-redux";
 import {useRouter }  from "next/router";
@@ -22,12 +19,12 @@ const AnnonceSearchForm = ({
 	const [issetFilter, setIsSetFilter] = React.useState(false)
 	const router = useRouter();
 
-	let initialValues = {
-		category: router.query.category ? router.query.category : '',
-		sub_category: router.query.sub_category ? router.query.sub_category : '',
-		usage: router.query.usage ? router.query.usage : '',
+	let sendValues = {
 		postal_code: router.query.postal_code ? router.query.postal_code : '',
+		category: router.query.category ? router.query.category : '',
+		//sub_category: router.query.sub_category ? router.query.sub_category : '',
 		owner_type: router.query.owner_type ? router.query.owner_type : '',
+		usage: router.query.usage ? router.query.usage : '',
 		experience_eco: router.query.experience_eco ? router.query.experience_eco : '',
 	}
 
@@ -44,17 +41,15 @@ const AnnonceSearchForm = ({
 		const per_page_req = router.query.perPage ? router.query.perPage : 18;
 		const postal_code = values.postal_code
 		const category = router.query.category ? router.query.category : values.category
-		const sub_category = router.query.sub_category ? router.query.sub_category : values.sub_category
 		const owner_type = router.query.owner_type ? router.query.owner_type :values.owner_type
 		const usage = router.query.usage ? router.query.usage : values.usage
 		const experience_eco = router.query.experience_eco ? router.query.experience_eco : values.experience_eco
 
 		try {
-			dispatch(filterIdeas(router.query.page, per_page_req, postal_code, category, sub_category, owner_type, usage, experience_eco))
+			dispatch(filterIdeas(router.query.page, per_page_req, postal_code, category, owner_type, usage, experience_eco))
 			setIsSetFilter(true)
-			console.log("category :", category)
-			console.log("usage :", usage)
-			console.log("owner_type :", owner_type)
+			console.log("usage: ", usage);
+			console.log("owner_type: ", owner_type);
 
 		} catch (err) {
 			console.log(err);
@@ -67,9 +62,9 @@ const AnnonceSearchForm = ({
 			<section className="annonceSearchForm mt-4">
 				<div className="container px-4 mx-auto border-2 rounded py-2 z-40">
 					<Form
-						initialValues={initialValues}
+						initialValues={sendValues}
 						onSubmit={onSubmit}
-						render={({ handleSubmit, form, submitting, pristine, values }) => (
+						render={({ handleSubmit, form, submitting, values }) => (
 							<form onSubmit={handleSubmit}>
 								<div className="flex flex-wrap mt-4">
 									<div className="w-full px-4 flex-1">
@@ -104,7 +99,6 @@ const AnnonceSearchForm = ({
 										<Field
 											name="usage"
 											component="select"
-											value={values.usage}
 											placeholder="usage"
 											className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-3 py-2 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
 											{useOptions.map(useOption => (
@@ -119,7 +113,9 @@ const AnnonceSearchForm = ({
 										>
 											Par
 										</label>
-										<Field name="owner_type" component="select"  value={values.owner_type} className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-3 py-2 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+										<Field name="owner_type"
+											   component="select"
+											   className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-3 py-2 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
 											{statuVendeurOptions.map(statuVendeurOption => (
 												<option key={statuVendeurOption.value} value={statuVendeurOption.value}>{statuVendeurOption.label}</option>
 											))}

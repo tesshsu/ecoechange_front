@@ -96,7 +96,7 @@ export default function About() {
                         <p className="mb-4 text-lg leading-relaxed text-gray-800">
                             Vous avez des questions? Contactez-nous. Nous nous tenons disponible pour vous aider.
                         </p>
-					  <Link href="/vendre">
+					  <Link href="/partager">
                       <a
                         href="#"
                         className="font-normal text-blue-500"

@@ -98,7 +98,7 @@ export default function Policy() {
                           <p className="mb-4 text-lg leading-relaxed text-gray-800">
                               Nous pouvons être amenés à modifier occasionnellement la présente information. Lorsque cela est nécessaire ou requis, nous vous en informerons et / ou solliciterons votre accord. Nous vous invitons donc à la consulter lors de chaque visite afin de prendre connaissance de sa dernière version.
                           </p>
-                          <Link href="/vendre">
+                          <Link href="/partager">
                               <a
                                   href="#"
                                   className="font-normal text-blue-500"

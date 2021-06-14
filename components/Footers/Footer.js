@@ -29,7 +29,7 @@ export default function Footer() {
             <div className="w-full lg:w-6/12 px-4">
               <h4 className="text-3xl font-semibold">ecoechange.com</h4>
               <h5 className="text-lg mt-0 mb-2 text-gray-700">
-                  Faciliter votre vie éco et protèger notre planète
+                  1 plateforme, des milliers d’idées écologiques
               </h5>
               <div className="mt-6 lg:mb-0 mb-6">
                   <button
@@ -90,6 +90,16 @@ export default function Footer() {
 						  </a>
 					  </Link>
                     </li>
+                      <li>
+                          <Link href="/footer/faq">
+                              <a
+                                  className="text-gray-600 hover:text-gray-900 font-semibold block pb-2 text-sm"
+                                  href="#"
+                              >
+                                  FAQ
+                              </a>
+                          </Link>
+                      </li>
                       <li>
                           <Link href="/footer/policy">
                               <a

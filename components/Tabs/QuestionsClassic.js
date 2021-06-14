@@ -688,7 +688,7 @@ const QuestionsClassic = ({dispatch, loading, error, idea}) => {
 																		<div className="container text-center">
 																			<p className="text-md leading-relaxed text-gray-500">
 																				Bravo !
-																				Vous avez modifier  toutes !!
+																				Vous avez modifier toutes !!
 																			</p>
 																			<label
 																				className="block uppercase text-gray-800 text-md mb-2"

@@ -20,6 +20,7 @@ class MyDocument extends Document {
           />
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.css" />
           <link href="https://unpkg.com/leaflet-geosearch@latest/assets/css/leaflet.css" rel="stylesheet" />
+          <script data-ad-client="ca-pub-1292591187205618" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         </Head>
         <body className="text-gray-800 antialiased">
           <div id="page-transition"></div>

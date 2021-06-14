@@ -1,20 +1,10 @@
 import React, { useState, useEffect, useRef } from "react"
 import { connect } from "react-redux"
-import GoogleMapReact from "google-map-react"
-import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet"
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet"
 import "leaflet/dist/leaflet.css"
 import { Icon, marker, latLng } from "leaflet"
 import axios from "axios"
 
-// const CustomMarker = ({ text }) => (
-//     <div className="custom-marker rounded-full">
-//         <img
-//             className="markerMap"
-//             src={require("assets/img/brand/apple-icon.png")}
-//             alt="marker"
-//         />
-//     </div>
-// )
 
 const CardAnnonceMap = ({ dispatch, loading, idea }) => {
     const [lat, setLat] = useState()
@@ -56,16 +46,9 @@ const CardAnnonceMap = ({ dispatch, loading, idea }) => {
                         console.log(error.message)
                     }
 
-                    // setLatLng([res.data[0].lat, res.data[0].lon])
                 }, 1000)
 
                 console.log(lat, lng)
-                // if (map) {
-                //     map.flyTo([
-                //         parseFloat(res.data[0].lat),
-                //         parseFloat(res.data[0].lon),
-                //     ])
-                // }
             } catch (error) {
                 console.log(error.message)
             }
@@ -79,8 +62,8 @@ const CardAnnonceMap = ({ dispatch, loading, idea }) => {
         <>
             {idea?.shop_address ? (
                 <MapContainer
-                    center={[48.864716, 2.349014]}
-                    zoom={15}
+                    center={[46.232193, 2.213749]}
+                    zoom={12}
                     scrollWheelZoom={true}
                     dragging={true}
                     animate={true}
@@ -96,15 +79,33 @@ const CardAnnonceMap = ({ dispatch, loading, idea }) => {
                         position={markers.LatLng}
                         icon={
                             new Icon({
-                                iconUrl:
-                                    "https://unpkg.com/leaflet@1.6.0/dist/images/marker-icon.png",
-                                iconSize: [25, 41],
-                                iconAnchor: [12, 41],
+                                iconUrl:'https://cdn.mapmarker.io/api/v1/fa?size=120&icon=fa-leaf&color=%23194D33&',
+                                iconSize: [51, 51],
+                                iconAnchor: [10, 10],
                             })
                         }
                     >
-                        <Popup>
-                            A pretty CSS3 popup. <br /> Easily customizable.
+                        <Popup
+                            className={'mapPopup'}
+                        >
+                            <div className="popContent">
+                                <h4 className="font-semibold text-green-500 text-2xl">{idea?.title}</h4>
+                                {idea?.uploads.length > 0 ? (
+                                <img
+                                    alt={idea?.uploads[0].name}
+                                    src={process.env.NEXT_PUBLIC_API_URL + idea?.uploads[0].url}
+                                    className="mapImg shadow-lg mx-auto rounded-lg"
+                                />
+                                ) : (
+                                <img
+                                    alt="defalut ideaImg"
+                                    src={require("assets/img/idea/default.jpg")}
+                                    className="shadow-lg mx-auto rounded-lg"
+                                />
+                                )
+                                }
+                                <p className="text-xl text-center">{idea?.category}</p>
+                            </div>
                         </Popup>
                     </Marker>
                 </MapContainer>

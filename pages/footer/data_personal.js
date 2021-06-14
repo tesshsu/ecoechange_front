@@ -61,7 +61,7 @@ export default function dataPersonal() {
 						  className="bg-gray-800 text-white active:bg-gray-700 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150"
 						  type="button"
 						>
-						  <Link href="/vendre">
+						  <Link href="/partager">
 						  <a
 							href="#"
 							className={
@@ -155,7 +155,7 @@ export default function dataPersonal() {
 					  <p className="mb-4 text-lg leading-relaxed text-gray-800">
                         Nous pouvons être amenés à modifier occasionnellement la présente information. Lorsque cela est nécessaire ou requis, nous vous en informerons et / ou solliciterons votre accord. Nous vous invitons donc à la consulter lors de chaque visite afin de prendre connaissance de sa dernière version.
                        </p>
-					  <Link href="/vendre">
+					  <Link href="/partager">
                       <a
                         href="#"
                         className="font-normal text-blue-500"
