@@ -45,7 +45,7 @@ export const listFilterOptions = {
         "*-- Sélectionnez dans la liste --*", "recettes enfants bébé", "produit pour enfants bébé", "astuce pour enfants bébé zéro déchet", "autre"
     ],
     "Boutique écologique": [
-        "*-- Sélectionnez dans la liste --*", "boutique bio", "boutique Zéro Déchet", "Epicerie vrac", "Magasin de vêtements", "Restaurant bio"
+        "*-- Sélectionnez dans la liste --*", "boutique bio", "boutique Zéro Déchet", "Epicerie vrac", "Magasin de vêtements", "Restaurant bio", "Restaurant végan","Restaurant végétariens"
     ],
     "Ferme locale": [
          "*-- Sélectionnez dans la liste --*", "fromages et produits laitiers", "plantes et produits du jardin", "volailles et lapins", "Moutons et chèvre", "atelier de jardinage", "légume-fruit", "Miel", "Vin et spiritueux", "Bovins", "Gibiers", "Poissons", "autre"

@@ -639,7 +639,8 @@ video {
     font-size: 0.75rem !important;
   }
   .categoryText{
-    font-size: 1.65rem !important;
+    top: 12rem !important;
+    font-size: 2rem !important;
   }
   .homeTopbg{
     display: none;
@@ -4195,6 +4196,9 @@ video {
 .annoceSlider{
 
 }
+.slick-slide{
+  padding: 0 20px;
+}
 .annoceSlider .sliderImg{
 	overflow: hidden;
 }
@@ -4426,8 +4430,8 @@ stripPaymentBlock .StripeElement {
   }
  .categoryText{
    position: absolute;
-   top: 9.5rem;
-   margin-left: 20px;
+   top: 10rem;
+   padding-left: 1rem;
  }
 .logoEco{
 	max-width: 130px;

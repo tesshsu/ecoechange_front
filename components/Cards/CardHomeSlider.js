@@ -1,26 +1,23 @@
 import React, {useEffect} from "react";
 import Slider from "react-slick";
 import {connect} from "react-redux";
-import Link from "next/link";
 import {useRouter} from "next/router";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import {
-	categoryFilterOptions
-} from "../../helpers/constantCategory"
+	listsSliderHomes, listsSliderQAs
+} from "../../helpers/constant"
 
-const CardHomeCategorySlider = () => {
+const CardHomeSlider = () => {
 	const router = useRouter();
-	const slideToShowItem = router.pathname === '/annonces' ? 4 : 5;
+	const retriveSliders = router.pathname === '/' ? listsSliderHomes : listsSliderQAs;
+	const retriveSlider = router.pathname === '/' ? 'listsSliderHome' : 'listsSliderQA';
 	const settings = {
-		//dots: true,
-		//dotsClass: "slick-dots slick-thumb",
-		adaptiveHeight: true,
+		fade: true,
 		className: "annoceSlider",
-		centerPadding: "30px",
 		infinite: true,
 		speed: 500,
-		slidesToShow: slideToShowItem,
+		slidesToShow: 1,
 		slidesToScroll: 1,
 		responsive: [
 			{
@@ -40,17 +37,14 @@ const CardHomeCategorySlider = () => {
 	return (
 		<>
 				<Slider {...settings}>
-					{categoryFilterOptions.map((categoryFilterOption, idx) => (
-						<Link key={idx} href={`annonces?category=${categoryFilterOption.code}`} {...categoryFilterOption}>
-						<div className="text-md text-gray-700 mt-4">
+					{retriveSliders.map((retriveSlider, idx) => (
+						<div className="mt-4">
 							<img
-								alt={categoryFilterOption.code}
-								src={categoryFilterOption.photo}
+								alt={retriveSlider.name}
+								src={retriveSlider.url}
 								className="img-responsive shadow-lg mx-auto rounded-lg"
 							/>
-							<p className="categoryText text-xl text-white">{categoryFilterOption?.code} </p>
 						</div>
-						</Link>
 					))}
 				</Slider>
 		</>
@@ -63,4 +57,4 @@ const mapStateToProps = (state) => ({
 	hasErrors: state.ideasReducer.hasErrors
 })
 
-export default connect(mapStateToProps)(CardHomeCategorySlider)
+export default connect(mapStateToProps)(CardHomeSlider)

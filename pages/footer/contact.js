@@ -89,25 +89,26 @@ export default function Contact() {
                                             </div>
                                         </div>
                                         <div className="flex flex-wrap mt-4">
-                                            <div className="w-full lg:w-6/12 px-4">
+                                            <div className="w-full lg:w-4/12 px-4">
                                                 <label className="block uppercase text-gray-700 text-xs font-bold mb-2 mt-4">Vous êtes</label>
                                                 <select name="from_statu" id="cars">
                                                     <option value="particulier">particulier</option>
                                                     <option value="professionnel">professionnel</option>
                                                 </select>
                                             </div>
-                                            <div className="w-full lg:w-6/12 px-4">
+                                            <div className="w-full lg:w-8/12 px-4">
                                                 <label className="block uppercase text-gray-700 text-xs font-bold mb-2 mt-4">Concernant</label>
                                                 <select name="from_concernant" id="from_concernant">
-                                                    <option value="demande nous mettre votre idee sur le plateform">demande mettre votre idées</option>
+                                                    <option value="aide pour publier une annonce/idée">aide pour publier une annonce/idée</option>
                                                     <option value="demande partenaire">demande de partenariat</option>
                                                     <option value="demande nous supprimer votre compte">supprimer votre compte/annonce</option>
+                                                    <option value="autre">Autre</option>
                                                 </select>
                                             </div>
                                         </div>
-                                        <label className="block uppercase text-gray-700 text-xs font-bold mb-2 mt-4">Plus de détails ? </label>
+                                        <label className="block uppercase text-gray-700 text-xs font-bold mb-2 mt-4 px-4">Plus de détails ? </label>
                                         <textarea
-                                            className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
+                                            className="px-4 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
                                             required = {true}
                                             name="message"
                                         />
@@ -119,8 +120,9 @@ export default function Contact() {
                                             value="Allons-y"
                                         />
                                         <h4 className="text-gray-800 text-md text-center">Vous pouvez nous rejoindre directement </h4>
-                                        <p className="text-green-500 text-xs text-center">Etant donné que votre enseigne partage nos valeurs, nous pouvons vous créer un compte et une annonce sur ÉcoÉchange, afin de vous promouvoir! Les informations contenues dans votre publicité sont les informations que nous avons trouvées dans les informations publiques via Internet.
-                                            Merci de préciser votre activité ( votre Facebook/site internet/google ) pour que nous puissions créer un compte et une annonce sur ÉcoÉchange!</p>
+                                        <p className="text-green-500 text-xs text-center">
+                                            Si votre enseigne partage nos valeurs, nous pouvons vous créer un compte et une annonce sur ÉcoÉchange, afin de vous promouvoir! Pour ce faire, nous utiliserons les informations publiques présente sur internet. Merci de préciser votre activité ainsi que votre Facebook/site internet pour que nous puissions créer un compte et votre annonce sur ÉcoÉchange!
+                                        </p>
                                         <div className="flex items-center text-center">
                                             <Link href="/auth/register">
                                                 <a
