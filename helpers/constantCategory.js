@@ -5,7 +5,6 @@ export const categoryFilterOptions = [
     {"name": 'Santé et Hygiene', "code": 'Santé et Hygiene', photo: require("assets/img/idea/sante.jpg") },
     {"name": 'Mode', "code": 'Mode', photo: require("assets/img/idea/search.jpg")},
     {"name": 'Beauté', "code": 'Beauté', photo: require("assets/img/idea/beauty.jpg")},
-    {"name": 'Salle de bain', "code": 'Salle de bain', photo: require("assets/img/idea/salledebain.jpg")},
     {"name": 'Maison et Jardin', "code": 'Maison et Jardin', photo: require("assets/img/idea/maison.jpg")},
     {"name": 'Evenements et Association', "code": 'Evenements et Association', photo: require("assets/img/idea/association.jpg")},
     {"name": 'Enfants', "code": 'Enfants', photo: require("assets/img/idea/enfant.jpg")},
@@ -24,16 +23,13 @@ export const listFilterOptions = {
         "*-- Sélectionnez dans la liste --*", "recettes cuisine", "recettes sans gluten", "recettes vegetarienne", "produit de cuisine", "produit d'alimentation", "Le nettoyant pour les sols", "recettes zéro déchets", "autre"
     ],
     "Santé et Hygiene": [
-        "*-- Sélectionnez dans la liste --*", "astuce de bonne santé et de Hygiene", "produit de santé", "produit Hygiene", "recette aromathérapie bien-être", "autre"
+        "*-- Sélectionnez dans la liste --*", "astuce de bonne santé et de Hygiene", "produit de santé", "produit Hygiene", "recette aromathérapie bien-être", "recette soins des cheveux", "recette soins du corps", "recette soins du visage", "astuce zéro déchet salle de bain","produit salle de bain","autre"
     ],
     "Mode": [
         "*-- Sélectionnez dans la liste --*", "astucede manière éco-responsable", "Vendez vos créations de mode", "autre"
     ],
     "Beauté": [
         "*-- Sélectionnez dans la liste --*", "astuce de beauté", "Produits de beauté", "recette maquillage", "autres"
-    ],
-    "Salle de bain": [
-        "*-- Sélectionnez dans la liste --*", "recette soins des cheveux", "recette soins du corps", "recette soins du visage", "astuce zéro déchet salle de bain","produit salle de bain","autres"
     ],
     "Maison et Jardin": [
         "*-- Sélectionnez dans la liste --*", "recette nettoyant maison fait maison",  "produit maison", "produit jardin exterieur", "astuce zéro déchet maison jardin", "autres"
@@ -45,7 +41,7 @@ export const listFilterOptions = {
         "*-- Sélectionnez dans la liste --*", "recettes enfants bébé", "produit pour enfants bébé", "astuce pour enfants bébé zéro déchet", "autre"
     ],
     "Boutique écologique": [
-        "*-- Sélectionnez dans la liste --*", "boutique bio", "boutique Zéro Déchet", "Epicerie vrac", "Magasin de vêtements", "Restaurant bio", "Restaurant végan","Restaurant végétariens"
+        "*-- Sélectionnez dans la liste --*", "boutique bio", "boutique Zéro Déchet", "Epicerie vrac", "Magasin de vêtements", "Restaurant bio", "Restaurant végan","Restaurant végétarien"
     ],
     "Ferme locale": [
          "*-- Sélectionnez dans la liste --*", "fromages et produits laitiers", "plantes et produits du jardin", "volailles et lapins", "Moutons et chèvre", "atelier de jardinage", "légume-fruit", "Miel", "Vin et spiritueux", "Bovins", "Gibiers", "Poissons", "autre"
