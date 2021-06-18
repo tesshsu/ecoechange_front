@@ -9,7 +9,9 @@ import {
 	useOptions,
 	statuVendeurOptions,
 	durationEcos,
-	OuiOptions
+	OuiOptions,
+    cycleVieOptions,
+	efficaciteDispoOptions
 } from '../../helpers/constant'
 import {
 	categoryFilterOptions,
@@ -24,8 +26,10 @@ import {transformValueToBoolean} from "../../helpers/Utils";
 const QuestionsClassic = ({dispatch, loading, error, idea}) => {
 	const [openTab, setOpenTab] = React.useState(1)
 	const [isFirst, setIsFirst] = React.useState(true)
+	const [isFirstEtape3, setIsFirstEtape3] = React.useState(true)
 	const [isClickSubmit, setisClickSubmit] = React.useState(true)
 	const [isClickSubmit2, setisClickSubmit2] = React.useState(true)
+	const [isClickSubmit3, setisClickSubmit3] = React.useState(true)
 	const [hasErrors, setHasErrors] = React.useState(true)
 	const [editIdea, setEditIdea] = React.useState(false);
 	/*open tip*/
@@ -55,7 +59,14 @@ const QuestionsClassic = ({dispatch, loading, error, idea}) => {
 		accord_contact: idea?.accord_contact?.toString(),
 		shop_address: idea?.shop_address,
 		own_website: idea?.own_website,
-		product_price: idea?.product_price
+		product_price: idea?.product_price,
+		cycle_vie: idea?.cycle_vie,
+		composants_local: idea?.composants_local.toString(),
+		transparence_info: idea?.transparence_info.toString(),
+		label_certificat: idea?.label_certificat.toString(),
+		innocuite_env: idea?.innocuite_env.toString(),
+		efficacite_dispo: idea?.efficacite_dispo,
+		product_label: idea?.product_label
 	}
 
 	const {
@@ -84,14 +95,32 @@ const QuestionsClassic = ({dispatch, loading, error, idea}) => {
 		try {
 			if (idea && editIdea == true ) {
 				values.accord_contact = transformValueToBoolean(values.accord_contact);
+				values.composants_local = transformValueToBoolean(values.composants_local);
+				values.transparence_info = transformValueToBoolean(values.transparence_info);
+				values.label_certificat = transformValueToBoolean(values.label_certificat);
+				values.innocuite_env = transformValueToBoolean(values.innocuite_env);
 				await modifyIdea(idea?.id, values);
 				if(openTab === 1 ){
 					setisClickSubmit(false)
 				}else if (openTab === 2 ){
 					setisClickSubmit2(false)
+				}else {
+					setisClickSubmit3(false)
 				}
-			} else {
+			} else if(idea){
 				values.accord_contact = transformValueToBoolean(values.accord_contact);
+				values.composants_local = transformValueToBoolean(values.composants_local);
+				values.transparence_info = transformValueToBoolean(values.transparence_info);
+				values.label_certificat = transformValueToBoolean(values.label_certificat);
+				values.innocuite_env = transformValueToBoolean(values.innocuite_env);
+				await create(values);
+				setIsFirstEtape3(false)
+			}else {
+				values.accord_contact = transformValueToBoolean(values.accord_contact);
+				values.composants_local = transformValueToBoolean(values.composants_local);
+				values.transparence_info = transformValueToBoolean(values.transparence_info);
+				values.label_certificat = transformValueToBoolean(values.label_certificat);
+				values.innocuite_env = transformValueToBoolean(values.innocuite_env);
 				await create(values);
 				setIsFirst(false)
 			}
@@ -159,6 +188,28 @@ const QuestionsClassic = ({dispatch, loading, error, idea}) => {
 								className={
 									"text-xs font-bold uppercase px-3 py-3 rounded-full block leading-normal " +
 									(openTab === 3
+										? "text-white bg-green-500"
+										: "text-gray-600 bg-gray-200")
+								}
+								onClick={e => {
+									e.preventDefault();
+									setOpenTab(3);
+								}}
+								data-toggle="tab"
+								href="#link3"
+								role="tablist"
+							>
+								<i className="fas fa-chevron-circle-right ext-base mr-1"></i>3ème étape (facultatif)
+							</a>
+						</li>
+						<li className="mr-2 mt-2 text-center">
+							<i className="fas fa-long-arrow-alt-right"></i>
+						</li>
+						<li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
+							<a
+								className={
+									"text-xs font-bold uppercase px-3 py-3 rounded-full block leading-normal " +
+									(openTab === 4
 										? "text-white bg-green-500"
 										: "text-gray-600 bg-gray-200")
 								}
@@ -694,7 +745,7 @@ const QuestionsClassic = ({dispatch, loading, error, idea}) => {
 																				className="block uppercase text-gray-800 text-md mb-2"
 																				htmlFor="suivePremium"
 																			>
-																				Souhaitiez vous continuer modifier les photos ?
+																				Souhaitiez vous continuer modifier Étape 3 ?
 																			</label>
 																			<div
 																				className="relative flex w-full flex-wrap items-stretch mb-3">
@@ -715,7 +766,7 @@ const QuestionsClassic = ({dispatch, loading, error, idea}) => {
 																				<Condition when="suivePhotos" is="Oui">
 																					<div className="container mx-auto text-center">
 																						<a
-																							className="text-kl mt-4 bg-green-500 text-white uppercase px-2 py-4 shadow-lg rounded-full block"
+																							className="text-kl mt-4 bg-green-500 text-white uppercase px-2 py-2 shadow-lg rounded-full block"
 																							onClick={e => {
 																								e.preventDefault();
 																								setOpenTab(3);
@@ -724,21 +775,24 @@ const QuestionsClassic = ({dispatch, loading, error, idea}) => {
 																							href="#link3"
 																							role="tablist"
 																						>
-																							Modifier les photos <i className="far fa-images text-base mr-1 animate-bounce"></i>
+																							<i className="fas fa-arrow-right text-base mr-1 animate-bounce"></i> Étape 3 ( facultatif )
 																						</a>
 																					</div>
 																				</Condition>
 																				<Condition when="suivePhotos" is="Non">
-																					<div className="container mx-auto text-center">
-																						<Link href={idea?.id ? (`/annonce?id=${idea?.id}`) : ("#")} {...idea}>
-																							<button
-																								className="bg-green-500 text-white active:bg-grey-500 text-sm uppercase px-12 py-4 my-4 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-																								type="submit"
-																								disabled={submitting}
-																							>
-																								Envoyer et Voir
-																							</button>
-																						</Link>
+																					<div className="container mx-auto text-center mt-4">
+																						<a
+																							className="text-md bg-green-500 text-white font-bold uppercase px-4 py-2 shadow-lg rounded-full block leading-normal "
+																							onClick={e => {
+																								e.preventDefault();
+																								setOpenTab(4);
+																							}}
+																							data-toggle="tab"
+																							href="#link4"
+																							role="tablist"
+																						>
+																							<i className="fas fa-arrow-right text-base mr-1 animate-bounce"></i> Modifier des photos ( final )
+																						</a>
 																					</div>
 																				</Condition>
 																			</div>
@@ -748,25 +802,248 @@ const QuestionsClassic = ({dispatch, loading, error, idea}) => {
 															)}
 														</div>
 													) :(
-														<a
-															className="text-kl bg-green-500 text-white font-bold uppercase px-4 py-5 shadow-lg rounded block leading-normal "
-															onClick={e => {
-																e.preventDefault();
-																setOpenTab(3);
-															}}
-															data-toggle="tab"
-															href="#link3"
-															role="tablist"
-														>
-															<i className="fas fa-arrow-right text-base mr-1 animate-bounce"></i> Final
-															étape
-														</a>
+														<div className="flex-wrap text-center">
+															<a
+																className="text-kl bg-green-500 text-white font-bold uppercase px-4 py-2 shadow-lg rounded-full block leading-normal "
+																onClick={e => {
+																	e.preventDefault();
+																	setOpenTab(3);
+																}}
+																data-toggle="tab"
+																href="#link3"
+																role="tablist"
+															>
+																<i className="fas fa-arrow-right text-base mr-1 animate-bounce"></i> Étape 3 ( facultatif )
+															</a>
+															<p className="text-xl text-gray-800">OU</p>
+															<a
+																className="text-kl bg-green-500 text-white font-bold uppercase px-4 py-2 shadow-lg rounded-full block leading-normal "
+																onClick={e => {
+																	e.preventDefault();
+																	setOpenTab(4);
+																}}
+																data-toggle="tab"
+																href="#link4"
+																role="tablist"
+															>
+																<i className="fas fa-arrow-right text-base mr-1 animate-bounce"></i> Ajoutez des photos ( final )
+															</a>
+														</div>
 													)}
-
 												</div>
 											</div>
 
 											<div className={openTab === 3 ? "block" : "hidden"} id="link3">
+												<h4 className="text-white bg-gray-800 text-center text-lg my-4 mb-6 rounded font-bold"> Votre engagement écologique </h4>
+												<p className="text-green-500 text-center text-md my-4 mb-6 rounded font-bold"> Champs spécifiques pour votre note écologique (facultatifs) </p>
+												<div className="flex flex-wrap">
+													<div className="w-full lg:w-6/12 px-4">
+														<label
+															className="block uppercase text-gray-800 text-md font-bold mb-2"
+															htmlFor="cycle_vie"
+														>
+															Cycle de vie du produit
+														</label>
+														<div
+															className="relative flex w-full flex-wrap items-stretch mb-3">
+															<Field name="cycle_vie" component="select" className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-3 py-2 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+																{cycleVieOptions.map(cycleVieOption => (
+																	<option value={cycleVieOption.value}>{cycleVieOption.label}</option>
+																))}
+															</Field>
+															<div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white bg-green-500">
+																<i className="fas fa-chevron-circle-down text-2xl my-2"></i>
+															</div>
+															<Error name="cycle_vie"/>
+														</div>
+													</div>
+													<div className="w-full lg:w-6/12 px-4">
+														<label
+															className="block uppercase text-gray-800 text-md font-bold mb-2"
+															htmlFor="composants_local"
+														>
+															Tous les composants proviennentde source
+														</label>
+														<div
+															className="relative flex w-full flex-wrap items-stretch mb-3">
+															<Field name="composants_local" component="select" className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-3 py-2 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+																{OuiOptions.map(OuiOption => (
+																	<option value={OuiOption.value}>{OuiOption.label}</option>
+																))}
+															</Field>
+															<div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white bg-green-500">
+																<i className="fas fa-chevron-circle-down text-2xl my-2"></i>
+															</div>
+															<Error name="composants_local"/>
+														</div>
+													</div>
+												</div>
+
+												<div className="flex flex-wrap">
+													<div className="w-full lg:w-6/12 px-4">
+														<label
+															className="block uppercase text-gray-800 text-md font-bold mb-2"
+															htmlFor="transparence_info"
+														>
+															Transparence de l'information
+														</label>
+														<div
+															className="relative flex w-full flex-wrap items-stretch mb-3">
+															<Field name="transparence_info" component="select" className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-3 py-2 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+																{OuiOptions.map(OuiOption => (
+																	<option value={OuiOption.value}>{OuiOption.label}</option>
+																))}
+															</Field>
+															<div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white bg-green-500">
+																<i className="fas fa-chevron-circle-down text-2xl my-2"></i>
+															</div>
+															<Error name="transparence_info"/>
+														</div>
+													</div>
+													<div className="w-full lg:w-6/12 px-4">
+														<label
+															className="block uppercase text-gray-800 text-md font-bold mb-2"
+															htmlFor="label_certificat"
+														>
+															Labels/Certifications des produits ou services
+														</label>
+														<div
+															className="relative flex w-full flex-wrap items-stretch mb-3">
+															<Field name="label_certificat" component="select" className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-3 py-2 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+																{OuiOptions.map(OuiOption => (
+																	<option value={OuiOption.value}>{OuiOption.label}</option>
+																))}
+															</Field>
+															<div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white bg-green-500">
+																<i className="fas fa-chevron-circle-down text-2xl my-2"></i>
+															</div>
+															<Error name="label_certificat"/>
+															<Condition when="label_certificat" is="true"
+																	   className="mt-2">
+																<label
+																	className="block uppercase text-gray-800 text-md font-bold mb-2 mt-2"
+																	htmlFor="product_label"
+																>
+																	lesquels Labels/Certifications ?
+																</label>
+																<p className="text-sm text-gray-600"><i
+																	className="fas fa-info-circle animate-bounce"></i> Attention! Nous ne vérifions pas votre certification </p>
+																<Field
+																	name="product_label"
+																	component="input"
+																	type="text"
+																	value={values.product_label}
+																	placeholder="ecorcert"
+																	className="px-3 py-2 placeholder-gray-400 text-gray-800 relative border border-gray-400 bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full pl-10"
+																/>
+															</Condition>
+
+														</div>
+													</div>
+												</div>
+
+												<div className="flex flex-wrap">
+													<div className="w-full lg:w-6/12 px-4">
+														<label
+															className="block uppercase text-gray-800 text-md font-bold mb-2"
+															htmlFor="innocuite_env"
+														>
+															Aucune répercussion sur l'environnement
+														</label>
+														<div
+															className="relative flex w-full flex-wrap items-stretch mb-3">
+															<Field name="innocuite_env" component="select" className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-3 py-2 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+																{OuiOptions.map(OuiOption => (
+																	<option value={OuiOption.value}>{OuiOption.label}</option>
+																))}
+															</Field>
+															<div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white bg-green-500">
+																<i className="fas fa-chevron-circle-down text-2xl my-2"></i>
+															</div>
+															<Error name="innocuite_env"/>
+														</div>
+													</div>
+													<div className="w-full lg:w-6/12 px-4">
+														<label
+															className="block uppercase text-gray-800 text-md font-bold mb-2"
+															htmlFor="efficacite_dispo"
+														>
+															Efficacité comparé aux produits existants
+														</label>
+														<div
+															className="relative flex w-full flex-wrap items-stretch mb-3">
+															<Field name="efficacite_dispo" component="select" className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-3 py-2 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+																{efficaciteDispoOptions.map(efficaciteDispoOption => (
+																	<option value={efficaciteDispoOption.value}>{efficaciteDispoOption.label}</option>
+																))}
+															</Field>
+															<div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white bg-green-500">
+																<i className="fas fa-chevron-circle-down text-2xl my-2"></i>
+															</div>
+															<Error name="efficacite_dispo"/>
+														</div>
+													</div>
+												</div>
+
+												<div className="flex flex-wrap mt-12 px-4 align-center justify-center">
+													{editIdea ? (
+														<div className="flex-wrap text-center">
+															{isClickSubmit3 ? (
+																<button
+																	className="bg-green-500 text-white active:bg-gray-700 text-sm font-bold uppercase px-12 py-2 my-4 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+																	type="submit"
+																	disabled={submitting}
+																>
+																	<i className="fas fa-paper-plane text-base mr-1 animate-bounce"></i> ENVOYER
+																</button>
+															):(
+																<a
+																	className="text-kl bg-green-500 text-white font-bold uppercase px-4 py-5 shadow-lg rounded-full block leading-normal "
+																	onClick={e => {
+																		e.preventDefault();
+																		setOpenTab(4);
+																	}}
+																	data-toggle="tab"
+																	href="#link4"
+																	role="tablist"
+																>
+																	<i className="fas fa-arrow-right text-base mr-1 animate-bounce"></i> FINAL..
+																</a>
+
+															)}
+														</div>
+													) :(
+														<div flex-wrap text-center>
+															{isFirstEtape3 ?(
+																<button
+																	className="bg-green-500 text-white active:bg-grey-500 text-sm font-bold uppercase px-12 py-4 my-4 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+																	type="submit"
+																	disabled={submitting}
+																>
+																	<i className="fas fa-car-alt text-base mr-1 animate-bounce"></i> ENVOYER
+																</button>
+															):(
+																<a
+																	className="text-kl bg-green-500 text-white font-bold uppercase px-4 py-2 shadow-lg rounded-full block leading-normal "
+																	onClick={e => {
+																		e.preventDefault();
+																		setOpenTab(4);
+																	}}
+																	data-toggle="tab"
+																	href="#link4"
+																	role="tablist"
+																>
+																	<i className="fas fa-arrow-right text-base mr-1 animate-bounce"></i> Ajoutez des photos
+																</a>
+															)}
+
+														</div>
+													)}
+												</div>
+
+											</div>
+
+											<div className={openTab === 4 ? "block" : "hidden"} id="link4">
 												<div className="container mx-auto text-center">
 													<div
 														className="text-3xl block my-2 p-3 text-gray-600 font-bold">

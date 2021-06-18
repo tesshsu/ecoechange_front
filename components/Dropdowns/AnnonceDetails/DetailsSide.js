@@ -27,7 +27,6 @@ const DetailsSide = ({ dispatch,
 	  { icon: "fas fa-hand-holding-usd", name: "Prix du produit", value: prix_idea },
 	  { icon: "fas fa-store", name: "Adresse de la boutique", value: address_boutique }
   ];
-
   return (
     <>
         <div className="sideDetails w-full lg:w-4/12 px-12 mt-4 py-1">
@@ -37,6 +36,82 @@ const DetailsSide = ({ dispatch,
 			<div className="flex flex-wrap mt-4">
 			   <NoteConfiance />
 			</div>
+			{idea?.cycle_vie && (
+				<div className="flex flex-wrap p-1">
+					<div className="w-12/12 flex-1">
+						<span className="text-sm block p-3 text-gray-800 rounded-full border border-solid border-gray-200"><i className="fas fa-recycle"></i> Cycle de vie</span>
+					</div>
+					<div className="w-12/12 flex-1">
+						<span className="ideaburant text-md block p-3 text-gray-800">{idea?.cycle_vie}</span>
+						<p className="text-md text-gray-800"></p>
+					</div>
+				</div>
+			)}
+			{idea?.efficacite_dispo && (
+				<div className="flex flex-wrap p-1">
+					<div className="w-12/12 flex-1">
+						<span className="text-sm block p-3 text-gray-800 rounded-full border border-solid border-gray-200"><i className="fas fa-vial"></i> Efficacite comparaison</span>
+					</div>
+					<div className="w-12/12 flex-1">
+						<span className="ideaburant text-md block p-3 text-gray-800">{idea?.efficacite_dispo}</span>
+						<p className="text-md text-gray-800"></p>
+					</div>
+				</div>
+			)}
+			{idea?.composants_local == 1 && (
+				<div className="flex flex-wrap p-1">
+					<div className="w-12/12 flex-1">
+						<span className="text-sm block p-3 text-gray-800 rounded-full border border-solid border-gray-200"><i className="fas fa-tree"></i> Composants local</span>
+					</div>
+					<div className="w-12/12 flex-1">
+						<span className="ideaburant text-md block p-3 text-gray-800">oui</span>
+					</div>
+				</div>
+			)}
+			{idea?.transparence_info == 1 && (
+				<div className="flex flex-wrap p-1">
+					<div className="w-12/12 flex-1">
+						<span className="text-sm block p-3 text-gray-800 rounded-full border border-solid border-gray-200"><i className="fas fa-box-open"></i> Transparent Local</span>
+					</div>
+					<div className="w-12/12 flex-1">
+						<span className="ideaburant text-md block p-3 text-gray-800">oui</span>
+					</div>
+				</div>
+			)}
+			{idea?.innocuite_env == 1 && (
+				<div className="flex flex-wrap p-1">
+					<div className="w-12/12 flex-1">
+						<span className="text-sm block p-3 text-gray-800 rounded-full border border-solid border-gray-200"><i className="fas fa-atom"></i> Répercussion sur l'environnement</span>
+					</div>
+					<div className="w-12/12 flex-1">
+						<span className="ideaburant text-md block p-3 text-gray-800">oui</span>
+					</div>
+				</div>
+			)}
+			{idea?.product_label && (
+				<div className="flex flex-wrap p-1">
+					<div className="w-12/12 flex-1">
+						<span className="text-sm block p-3 text-gray-800 rounded-full border border-solid border-gray-200"><i className="fas fa-medal"></i> Product Label</span>
+					</div>
+					<div className="w-12/12 flex-1">
+						<span className="ideaburant text-md block p-3 text-gray-800">{idea?.product_label}</span>
+						<p className="text-md text-gray-800"></p>
+					</div>
+				</div>
+			)}
+
+			{ idea?.efficacite_dispo?.length > 0 || idea?.cycle_vie?.length > 0 ? (
+				<div className="flex flex-wrap mt-2">
+					<div className="flex flex-wrap content-center items-center justify-center mr-auto h-full">
+						<button
+							className="bg-green-500 text-white active:bg-gray-600 font-bold uppercase text-sm px-6 py-4 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button"
+						>
+							<i className="fas fa-store-alt"></i> <span className="noteConfiance text-md">Info Basic </span>
+						</button>
+					</div>
+				</div>
+			) :(null) }
+
 			{basics.map(basic => (
 				<div className="flex flex-wrap p-1">
 					<div className="w-12/12 flex-1">
@@ -93,7 +168,7 @@ const DetailsSide = ({ dispatch,
 					<button
 						className="bg-green-500 text-white active:bg-gray-600 font-bold uppercase text-sm px-6 py-4 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button"
 					>
-						<i className="fas fa-store-alt"></i> <span className="noteConfiance text-md"> Coin publicitaire </span>
+						<i className="fas fa-ad"></i> <span className="noteConfiance text-md"> Coin publicitaire </span>
 					</button>
 				</div>
 			</div>

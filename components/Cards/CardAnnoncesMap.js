@@ -34,8 +34,6 @@ const CardAnnonceMap = ({ dispatch, loading, ideas }) => {
                                 <Marker
                                     key={k}
                                     position={[city["coordinates"][1], city["coordinates"][0]]}
-                                    autoPan={true}
-                                    keyboard={true}
                                     icon={
                                         new Icon({
                                             iconUrl: 'https://cdn.mapmarker.io/api/v1/fa?size=120&icon=fa-leaf&color=%23194D33&',

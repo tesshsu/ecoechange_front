@@ -96,7 +96,6 @@ const Index = ({ dispatch,
           <h1 className="text-gray-700 font-semibold text-2xl text-center mt-4">Les points forts de la plateforme</h1>
           <div className="flex flex-wrap blogFunctions">
               <div className="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
-                  <Link href="/noteEco">
                       <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
                           <div className="px-4 py-5 flex-auto">
                               <div
@@ -106,7 +105,6 @@ const Index = ({ dispatch,
                               className="mt-2 mb-4 text-blueGray-500">Pour chaque idée mise en favori </p><p
                               className="mb-4 text-blueGray-500">Leur activité est référencée sur le site </p></div>
                       </div>
-                  </Link>
               </div>
               <div className="w-full md:w-4/12 px-4 text-center">
                   <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
