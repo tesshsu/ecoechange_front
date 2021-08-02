@@ -4,13 +4,15 @@ import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import Footer from "components/Footers/Footer.js";
 import YouTube from 'react-youtube';
 import CardAboutEquipeSlider from 'components/Cards/CardAboutEquipeSlider'
+import {isMobile} from 'react-device-detect';
 
 export default function About() {
     const videoOnReady = async(e) => {
         e.target.playVideoAt(10)
     }
-
+    const YouTubeStyle = isMobile ? '280vw' : '580vw'
     const opts = {
+        width: YouTubeStyle,
         playerVars: {
             autoplay: 1,
         },
@@ -49,14 +51,21 @@ export default function About() {
                                 Cette plateforme est accessible dans toute la France. Elle est ouverte aux professionnels déclarés, ou aux particuliers : commerçants , artisans et producteurs, particuliers, prestation de services etc, la plateforme est entièrement prise en charge de manière solidaire.
                             </p>
                         </div>
-                        <div className="p-2 mb-5">
-                            <h1 className="text-2xl text-green-500 text-bold text-center">
+                        <div className="EcoVideo text-center">
+                            <YouTube videoId="zd-uDhvymtY" className="img-responsive" opts={opts} onReady={videoOnReady} />
+                        </div>
+                        <div className="p-2">
+                            <h1 className="text-3xl text-green-500 text-bold text-center">
                                 Notre équipe
                             </h1>
                             <CardAboutEquipeSlider />
-                        </div>
-                        <div className="EcoVideo text-center">
-                           <YouTube videoId="zd-uDhvymtY" className="img-responsive" opts={opts} onReady={videoOnReady} />
+                            <div className="relative mt-4">
+                                <img
+                                    alt="defalut ideaImg"
+                                    src={require("assets/img/team/NotreTeamEco.png")}
+                                    className="shadow-lg mx-auto rounded-lg"
+                                />
+                            </div>
                         </div>
                         <p className="mb-4 text-lg leading-relaxed text-gray-800 mt-4" >
                             Êtes-vous à la recherche de nouvelles initiatives, produits ou services locaux?

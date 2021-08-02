@@ -34,13 +34,15 @@ const MesAnnonces = ({
                                 <i className="fas fa-chevron-left"></i> retour à la page d'accueil
                             </button>
                         </Link>
+                        <h4 className="ml-4 font-bold text-center text-xl text-gray-700 mt-4">Mes idées en ligne <i
+                            className="fab fa-envira animate-bounce"></i></h4>
                         <div className="flex flex-wrap">
-                            <h4 className="ml-4 font-bold text-lg text-gray-700 mt-4">Mes idées en ligne</h4>
                             <MesAnnoncesLists/>
                             { total == 0  ? (
                                 <div className="container mx-auto text-center rounded border border-solid border-gray-200 py-2">
                                     <h5 className="text-xl font-semibold pb-4">
-                                        Vous n'avez pas encore d'idées, veuillez publier l'idée / annonces rapidement !!
+                                        Vous n'avez pas encore d'idées, veuillez publier l'idée / annonces <i
+                                        className="fab fa-envira animate-bounce"></i>
                                     </h5>
                                     <button
                                         className="bg-green-500 text-white active:bg-gray-700 text-xs font-bold uppercase px-3 py-2 rounded-full shadow hover:shadow-lg outline-none focus:outline-none  ease-linear transition-all duration-150"

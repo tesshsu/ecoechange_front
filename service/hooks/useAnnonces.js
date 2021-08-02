@@ -6,8 +6,8 @@ import * as ANNONCES_ACTIONS from '../actions/ideas';
 export default function useAnnonces() {
   const dispatch = useDispatch();
   const idea = useSelector(state => state.idea);
-  const fetchIdeas = useCallback(() => dispatch(ANNONCES_ACTIONS.fetchIdeas(page=1, perPage=18)), [dispatch]);
-  const filterAnnonces = useCallback(() => dispatch(ANNONCES_ACTIONS.filterIdeas(page=1, perPage=18)), [dispatch]);
+  const fetchIdeas = useCallback(() => dispatch(ANNONCES_ACTIONS.fetchIdeas(page=1, perPage=24)), [dispatch]);
+  const filterAnnonces = useCallback(() => dispatch(ANNONCES_ACTIONS.filterIdeas(page=1, perPage=24)), [dispatch]);
 
   const create = useCallback(async (payload) => {
     try {

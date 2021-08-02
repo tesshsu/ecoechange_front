@@ -91,6 +91,16 @@ export default function Footer() {
 					  </Link>
                     </li>
                       <li>
+                          <Link href="/noteEco">
+                              <a
+                                  className="text-gray-600 hover:text-gray-900 font-semibold block pb-2 text-sm"
+                                  href="#"
+                              >
+                                  LA NOTE ÉCOLOGIQUE
+                              </a>
+                          </Link>
+                      </li>
+                      <li>
                           <Link href="/footer/faq">
                               <a
                                   className="text-gray-600 hover:text-gray-900 font-semibold block pb-2 text-sm"

@@ -4,7 +4,7 @@ import {authHeader, jsonHeader, jsonHeaderPhoto} from "../authRequest";
 export function create(payload) {
   return client
       .post('/api/v1/favorites', payload)
-    .then(({ data }) => data);
+      .then(({ data }) => data);
 }
 
 

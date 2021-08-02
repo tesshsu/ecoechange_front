@@ -10,8 +10,6 @@ export default function GoogleConnectButton() {
   async function googleConnect() {
     try {
       await signInUsingGoogle();
-
-      console.log("loggedUser=", loggedUser);
       if (loggedUser?.url) {
         window.location = loggedUser.url;
       }

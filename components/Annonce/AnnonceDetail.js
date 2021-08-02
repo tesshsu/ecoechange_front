@@ -9,7 +9,7 @@ import ShareButton from 'components/Annonce/ShareButton';
 import {fetchIdea} from 'service/actions/ideas';
 import {connect} from 'react-redux'
 import Router, {useRouter} from "next/router";
-import {create} from "../../service/actions/favorites";
+import {create, fetchFavorites} from "../../service/actions/favorites";
 import useLoggedUser from "../../service/hooks/useLoggedUser";
 
 const AnnonceDetail = ({
@@ -31,6 +31,7 @@ const AnnonceDetail = ({
 
 	useEffect(() => {
 		dispatch(fetchIdea(router.query.id))
+		dispatch(fetchFavorites(1, 500))
 	}, [dispatch])
 
 	const onClickFavoris = async (payload) => {
@@ -40,8 +41,8 @@ const AnnonceDetail = ({
 			} else {
 				dispatch(create(payload));
 			}
-		} catch (err) {
-			console.log(err);
+		} catch (error) {
+			console.log(error.message);
 		}
 	}
 
@@ -50,22 +51,17 @@ const AnnonceDetail = ({
 		<>
 			<div className="w-full lg:w-8/12 lg:mb-0 mb-12  my-6 shadow-lg rounded-lg">
 				<CardAnnonceSlide/>
-				<h4 className="marqueBlock text-xl text-white">
-					<span className="favoris">
+				<div className="marqueBlock text-xl text-white container px-2 mx-auto">
+					<div className="favoris flex flex-wrap">
 						<ShareButton/>
 						{isFavorite(idea?.id) ? (
-							<button
-								className="bg-gray-700 w-8 h-8 rounded-full outline-none focus:outline-none ml-2 mb-1"
-								type="button"
-							>
-								<i className="far fa-bookmark text-white"> </i>
-							</button>
+							<i className="fas fa-heart text-green-500 text-2xl ml-2"> </i>
 						): (<FavorisButton category="idea" entity_id={idea?.id} action={onClickFavoris}/>)}
-					</span>
+					</div>
 					{idea?.favorite_count >= 1 &&(
-						<span className="text-md px-2 text-green-500">{idea?.favorite_count} likes</span>
+						<span className="text-sm px-2 text-green-500 p-2 bg-white rounded-lg">{idea?.favorite_count} likes</span>
 					)}
-				</h4>
+				</div>
 				<div className="text-xl text-green-500 px-4 py-2 rounded-full shadow-lg text-center">
 					<span className="category">{idea?.category}</span> - <span className="sub_category">{idea?.sub_category}</span>
 				</div>

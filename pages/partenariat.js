@@ -23,8 +23,8 @@ export default function Prix() {
 			  }
 			}
 			getTokken();
-		}catch(err){
-			console.log(err);
+		}catch(error){
+			console.log(error.message);
         }
     }
   }, [isAuthentificated, loggedUser]);

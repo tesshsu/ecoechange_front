@@ -607,6 +607,12 @@ video {
 }
 /* for portable part*/
 @media (max-width: 468px) {
+  .blockBigIntro{
+    display: none !important;
+  }
+  .voteBlock ul li{
+    padding: 5px 0;
+  }
   .QAtitle{
     margin-top: 10rem!important;
   }
@@ -676,10 +682,7 @@ video {
      display: none;
    }
   .EcoVideo{
-    margin: 0 auto !important;
-    padding-top: 2rem;
-    max-width: 21.5rem !important;
-    max-height: 16rem !important;
+    margin: 0 !important;
   }
   .compare-block{
     margin-top: -6rem !important;
@@ -863,7 +866,7 @@ video {
   }
   .favoris-block img {
     max-width: 30rem;
-    max-height: 18rem;
+    max-height: 14rem;
   }
 }
 
@@ -4136,6 +4139,16 @@ video {
   right: -20px;
   width: 100px;
 }
+.certifiImage{
+  position: absolute;
+  width: 80px;
+  top: 14rem;
+  left: 1rem;
+}
+.certifiImageDetail{
+  position: absolute;
+  width: 100px;
+}
 .togBadge{
 	position: absolute;
     top: 30px;
@@ -4194,7 +4207,7 @@ video {
 	margin-left: 5px;
 }
 .annoceSlider{
-
+  margin-top: 3rem;
 }
 .slick-slide{
   padding: 0 20px;
@@ -4394,6 +4407,16 @@ stripPaymentBlock .StripeElement {
 .myAnnocePremium{
   right: 0;
 }
+/* page Annocelist*/
+.pageAnnonces .voteBlock{
+  margin-left: -1rem;
+}
+.pageAnnonces .voteBlock ul{
+  margin: 0;
+}
+.pageAnnonces .voteBlock ul h6{
+  display: none;
+}
 /*page payment*/
 .topImagePayment{
   position: absolute;
@@ -4456,4 +4479,7 @@ stripPaymentBlock .StripeElement {
 }
 .mapImgHome{
   max-height: 12rem;
+}
+.qaBlock{
+  margin-top: 20rem;
 }

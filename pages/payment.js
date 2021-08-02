@@ -57,16 +57,6 @@ const Payment = ({
                 <section className="container px-4 mx-auto border-2 rounded border-gray-500 py-10 z-40">
                     <div className="product flex flex-wrap mt-8">
                         <div className="w-full md:w-6/12 px-4">
-                            <img
-                                alt="..."
-                                src={require("assets/img/qualite_logo_satisfait.png")}
-                                className="w-full align-center topImagePayment"
-                            />
-                            <img
-                                alt="..."
-                                src={require("assets/img/qualite_logo.png")}
-                                className="w-full align-center togBadgePayment animate-bounce-small ease-in-out"
-                            />
                             {idea?.uploads.length > 0 ? (
                                 <img
                                     alt={idea?.uploads[0].name}

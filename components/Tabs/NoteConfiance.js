@@ -30,6 +30,10 @@ const NoteConfiance = ({ dispatch,
           >
               {renderSwitchNoteEco(countEco)}
           </button>
+            <i className="fas fa-info-circle text-xl text-gray-600 animate-bounce-small"></i>
+                {idea?.note >= 9 && idea?.votes?.confirmed == 5 && (
+                    <p className="text-green-500 text-left text-sm">Ce service/cette boutique contribue grandement à l'environnement, certifié par la plateforme Ecoechange</p>
+                )}
           <div
             className={
               (popoverShow ? "" : "hidden ") +
@@ -41,18 +45,27 @@ const NoteConfiance = ({ dispatch,
               <div
                 className="bg-green-500 text-white opacity-75 font-semibold p-3 mb-0 border-b border-solid border-gray-200 uppercase rounded-t-lg"
               >
-                  <i className="fas fa-seedling"></i> Quelle est la note qui favorise la qualification écologique de la vie?
+                  <i className="fas fa-seedling"></i> Que signifie votre note écologique
               </div>
               <div className="text-gray-700 p-3">
                     <ul className="list-unstyled">
 						<li>
-					        1. Expérience écologique annuelle estimée
+                            1 Leaf : Débutant, essayez d'avancer!
                         </li>
 						<li>
-					        2. Description de l'idée qualifiée
+                            2 Leaves : Investissez-vous dans votre parcours vert, une belle aventure vous attend!
                         </li>
                         <li>
-                            3. Nombre de favoris ajoutés par d'autres utilisateurs
+                            3 Leaves: Vous allez dans la bonne direction, bravo!
+                        </li>
+                        <li>
+                            4 Leaves: Bravo, vous avez déjà acquis une bonne note écologique, continuez comme ça!
+                        </li>
+                        <li>
+                            5 Leaves: Votre idée contribue grandement à l’environnement!
+                        </li>
+                        <li>
+                            5 Leaves + podium: Chapeau, vous êtes dans le top green, félicitations!!
                         </li>
                     </ul>
               </div>

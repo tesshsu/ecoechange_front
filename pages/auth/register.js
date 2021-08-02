@@ -22,10 +22,9 @@ export default function Register() {
       const data = { ...payload };
       await register(data);
 	  if(data){
-		 Router.push("/partager");
+		 Router.back();
 	  }
     } catch (err) {
-      console.log(err.response);
       if (err.response && err.response.status === 422) {
         submitError({
           email: 'Cet email est déjà utilisé'

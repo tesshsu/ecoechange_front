@@ -107,8 +107,8 @@ const ImageUpload= ({
                     let { id } = img;
                     try {
                         const response = removePhoto(idea?.id, {id});
-                    } catch (err) {
-                        console.log('Impossible supprimer photos', err);
+                    } catch (error) {
+                        console.log('Impossible supprimer photos', error.message);
                     }
                 });
             }
@@ -124,8 +124,8 @@ const ImageUpload= ({
             try {
                 const response = await addPhoto(idea?.id, formData);
                 image.id = response[0].id;
-            } catch (err) {
-                console.log('Impossible ajouter photos', err);
+            } catch (error) {
+                console.log('Impossible ajouter photos', error.message);
             }
         }
 

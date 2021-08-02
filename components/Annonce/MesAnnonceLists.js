@@ -6,8 +6,7 @@ import Router, {useRouter} from "next/router";
 import Moment from 'react-moment';
 import useLoggedUser from "../../service/hooks/useLoggedUser";
 import useAnnonces from "../../service/hooks/useAnnonces";
-import {renderSwitchValue} from '../../helpers/constant'
-
+import {renderSwitchNoteEco, renderSwitchValue} from '../../helpers/constant'
 const MesAnnoncesLists = ({ dispatch,
 							 loading,
 							 ideas,
@@ -37,8 +36,8 @@ const MesAnnoncesLists = ({ dispatch,
     const handleEdit = async (id) => {
         try {
             await editIdea(id, {});
-        } catch (err) {
-            console.log(err);
+        } catch (error) {
+            console.log(error.message);
         }
     }
 
@@ -49,8 +48,8 @@ const MesAnnoncesLists = ({ dispatch,
             if (confirm('Voulez-vous vraiment supprimer cette idée?')) {
                 await deleteIdea(id, MyselectedIdea);
             }
-        } catch (err) {
-            console.log(err);
+        } catch (error) {
+            console.log(error.message);
         }
     }
 
@@ -63,7 +62,7 @@ const MesAnnoncesLists = ({ dispatch,
 							<img
 								alt={idea?.uploads[0].name}
                                 src={process.env.NEXT_PUBLIC_API_URL + idea?.uploads[0].url}
-                                className="annonceImge img-responsive shadow-lg mx-auto rounded-lg"
+                                className="annonceImge img-responsive shadow-lg mx-auto mt-4 rounded-lg"
 							  />
 							  ) : (
 								<img
@@ -77,13 +76,20 @@ const MesAnnoncesLists = ({ dispatch,
                             <span className="text-sm block my-4 p-3 text-gray-800 rounded border border-solid border-gray-200">
 							    <div className="top justify-between">
                                   <div className="text-2xl uppercase text-orange-700 text-left">
-                                      {idea?.category}
+                                      {idea?.category} | <i className="fas fa-heart ml-2"></i> {idea?.favorite_count}
                                   </div>
                                 </div>
                                 <div className="top justify-between">
                                     <div className="text-xl text-orange-700 text-left">
-                                      {idea?.sub_category}
+                                      {idea?.sub_category} | {idea?.title}
                                     </div>
+                                    {idea?.note && (
+                                        <button
+                                            className="noteEco text-green-500 active:bg-gray-600 font-bold uppercase text-sm px-4 py-2 rounded-full ml-2 shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button"
+                                        >
+                                            {renderSwitchNoteEco(idea?.note)}
+                                        </button>
+                                    )}
                                     {idea?.product_price ? (
                                         <div className="text-xl text-orange-700">
                                             prix du produit : {idea?.product_price} €
@@ -158,9 +164,6 @@ const MesAnnoncesLists = ({ dispatch,
                                           </a>
                                     </button>
                                 </div>
-							  <p className="mt-4 px-2 py-2 text-md text-green-500 rounded-full">
-                                    <i className="fas fa-seedling"></i> {idea?.note}
-							  </p>
                             </span>
 						</div>
                     </div>

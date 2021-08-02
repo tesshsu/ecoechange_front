@@ -22,22 +22,20 @@ const Annonces = ({ dispatch,
     const router = useRouter();
     const owner = null;
     useEffect(() => {
+        const title = router.query.title ? router.query.title : '';
         const postal_code= router.query.postal_code ? router.query.postal_code : '';
         const category= router.query.category ? router.query.category : '';
-        const sub_category= router.query.sub_category ? router.query.sub_category : '';
         const owner_type= router.query.owner_type ? router.query.owner_type : '';
         const usage= router.query.usage ? router.query.usage : '';
         const experience_eco= router.query.experience_eco ? router.query.experience_eco : '';
+        const note= router.query.note ? router.query.enote : '';
 
-        dispatch(filterIdeas(router.query.page, router.query.perPage,
-             postal_code,
-             category, owner_type, sub_category,
-             usage, experience_eco));
+        dispatch(filterIdeas(router.query.page, router.query.perPage, title, postal_code, category, owner_type, usage, experience_eco, note));
     }, [dispatch])
     return (
         <>
             <IndexNavbar fixed />
-            <main>
+            <main className="pageAnnonces">
                 <section className="pt-10 pb-8 mt-32">
                     <div className="container mx-auto px-4">
                         <Link href="/">

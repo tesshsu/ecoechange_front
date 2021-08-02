@@ -1,6 +1,7 @@
 import React from "react"
 import { connect } from "react-redux"
 import dynamic from "next/dynamic"
+import CardAnnonceVote from "../../Cards/CardAnnonceVote";
 const DetailsDropdown = ({ dispatch, loading, idea }) => {
     const address_boutique = idea?.shop_address ? idea.shop_address : "none"
     const ncs = [
@@ -34,6 +35,7 @@ const DetailsDropdown = ({ dispatch, loading, idea }) => {
                         <i className="fab fa-pagelines"></i> L’IDÉE EST LA...
                     </h4>
                 </div>
+                <CardAnnonceVote idea={idea} />
                 {ncs?.map((nc) => (
                     <div className="container px-2 mx-auto">
                         <div className="flex flex-wrap">

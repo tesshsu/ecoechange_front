@@ -8,6 +8,8 @@ import FacebookConnectButton from 'helpers/FacebookConnectButton';
 import GoogleConnectButton from 'helpers/GoogleConnectButton';
 import * as formValidate from 'helpers/formValidate';
 import { useCookies } from "react-cookie"
+import { useRouter } from 'next/router'
+
 export default function Login() {
     const [cookie, setCookie] = useCookies(["user"])
     const {
@@ -16,10 +18,11 @@ export default function Login() {
         loggedUser
     } = useLoggedUser();
 
+    const router = useRouter()
+
     useEffect(() => {
         if (isAuthentificated && loggedUser) {
             setCookie("user", JSON.stringify(loggedUser), {
-                path: "/",
                 maxAge: 3600, // Expires after 1hr
                 sameSite: true,
             })
@@ -28,7 +31,7 @@ export default function Login() {
 
     return (
         <>
-            <div className="container mx-auto px-4 mt-6 h-full">
+            <div className="container mx-auto px-4 mb-24 h-full ">
                 <div className="flex content-center items-center justify-center h-full">
                     <div className="w-full lg:w-4/12 px-4">
                         <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-white border-0">
@@ -44,6 +47,7 @@ export default function Login() {
                                     <FacebookConnectButton />
                                     <GoogleConnectButton />
                                 </div>
+                                <h6 className="text-green-500 text-sm font-bold mt-2 text-center animate-bounce">Rejoignez-nous et votez pour aider la communauté à consommer plus vert !</h6>
                                 <Form
                                     initialValues={{
                                         email: '',
@@ -57,7 +61,7 @@ export default function Login() {
                                                 password.trim()
                                             );
 
-                                            Router.back();
+                                            router.back();
                                         } catch (err) {
                                             alert("Identifiants incorrects!");
                                         }
@@ -136,6 +140,7 @@ export default function Login() {
                                 />
                                 <p className="notifyForLogin text-sm leading-relaxed text-green-500 text-left"> <i className="fas fa-feather"> </i> Cette connexion vous permet de déposer et gérer vos publications.</p>
                                 <p className="notifyForLogin text-sm leading-relaxed text-green-500 text-left mt-2"> <i className="fas fa-bookmark"> </i> Ajouter vos idées en favoris.</p>
+                                <p className="notifyForLogin text-sm leading-relaxed text-green-500 text-left mt-2"> <i className="fas fa-seedling"> </i> Jouer le juge pour les idées/ annonces</p>
                                 <p className="notifyForLogin text-sm leading-relaxed text-green-500 text-left mt-2"><i className="fas fa-envelope-open-text"></i> Recevoir des notifications, des newsletters.</p>
                             </div>
                         </div>

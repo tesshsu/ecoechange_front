@@ -7,7 +7,6 @@ const FacebookConnectButton = ({
                                  dispatch,
                                  url
                                }) => {
-  const router = useRouter();
   const {
     signInUsingFacebook,
     isAuthentificated,

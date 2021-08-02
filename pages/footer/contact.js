@@ -59,8 +59,8 @@ export default function Contact() {
                                     Que vous soyez un professionnel ou un particulier, ÉcoÉchange a besoin de vous <i
                                     className="fas fa-leaf"></i>
                                 </h4>
-                                <h5 className="text-xl text-white font-semibold px-3">
-                                    Rassemblons nos force et rejoignez nous pour rendre l'environnement plus vert
+                                <h5 className="text-xl text-white px-3">
+                                    Avec Ecoechange, soignons la planète ensemble grâce au guide participatif du consommateur responsable,ou de partager vos idées et valeurs écologiques !
                                 </h5>
                             </div>
                             <div className="w-full lg:w-6/12 px-4">
@@ -99,6 +99,7 @@ export default function Contact() {
                                             <div className="w-full lg:w-8/12 px-4">
                                                 <label className="block uppercase text-gray-700 text-xs font-bold mb-2 mt-4">Concernant</label>
                                                 <select name="from_concernant" id="from_concernant">
+                                                    <option value="aide pour publier une annonce/idée">suggerez un artisan local</option>
                                                     <option value="aide pour publier une annonce/idée">aide pour publier une annonce/idée</option>
                                                     <option value="demande partenaire">demande de partenariat</option>
                                                     <option value="demande nous supprimer votre compte">supprimer votre compte/annonce</option>

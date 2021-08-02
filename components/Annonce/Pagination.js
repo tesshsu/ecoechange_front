@@ -1,5 +1,4 @@
 import React from "react";
-import {create} from "../../service/actions/favorites";
 import {useRouter} from "next/router";
 
 
@@ -7,7 +6,7 @@ import {useRouter} from "next/router";
 export default function Pagination(props) {
 	const router = useRouter();
 
-	const nb_pagination_selectors = props.nb_pagination_selectors ? props.nb_pagination_selectors : 5;
+	const nb_pagination_selectors = props.nb_pagination_selectors ? props.nb_pagination_selectors : 6;
 
 	const nb_previous_selectors = Math.floor(nb_pagination_selectors / 2);
 	const items = Array.from({ length: nb_pagination_selectors },

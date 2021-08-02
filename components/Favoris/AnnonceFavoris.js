@@ -22,8 +22,8 @@ const AnnonceFavoris = ({
       if (confirm('Voulez vous vraiment supprimer cette favorite?')) {
         await deleteFavorite(id, {});
       }
-    } catch (err) {
-      console.log(err);
+    } catch (error) {
+      console.log(error.message);
     }
   }
 
@@ -51,12 +51,12 @@ const AnnonceFavoris = ({
 			  <span className="text-sm block my-2 p-3 text-gray-800 rounded border border-solid border-gray-200">
 			        <div className="top justify-between">
 					  <div className="titlePart font-bold text-2xl text-orange-700 text-center py-2">
-					     {favorite?.entity?.category}
+					     {favorite?.entity?.category} | <i className="fas fa-heart ml-2"></i> {favorite?.entity?.favorite_count}
 					  </div>
 					</div>
 					<div className="container mx-auto">
-                        <div className="price text-gray-500  text-md bg-gray-400">
-					       {favorite?.entity?.sub_category}
+                        <div className="price text-gray-600  text-lg bg-gray-400">
+					       {favorite?.entity?.sub_category} | {favorite?.entity?.title}
 					    </div>
 					  <div className="flex flex-wrap">
 							<div className="w-1/3">
@@ -116,10 +116,6 @@ const AnnonceFavoris = ({
                                           </a>
                                     </button>
                     </div>
-					<p className="mt-4 px-2 py-2 text-md leading-relaxed text-green-500 font-bold uppercase rounded-full text-left">
-						<i className="fas fa-seedling"></i> {favorite?.entity?.note}
-				    </p>
-
 			  </span>
                 </div>
               </div>

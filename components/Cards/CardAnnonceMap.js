@@ -31,10 +31,6 @@ const CardAnnonceMap = ({ dispatch, loading, idea }) => {
                     try {
                         setLat(parseFloat(res.data[0].lat))
                         setLng(parseFloat(res.data[0].lon))
-                        console.log(
-                            parseFloat(res.data[0].lat),
-                            parseFloat(res.data[0].lon)
-                        )
 
                         if (map) {
                             map.flyTo([
@@ -47,17 +43,12 @@ const CardAnnonceMap = ({ dispatch, loading, idea }) => {
                     }
 
                 }, 1000)
-
-                console.log(lat, lng)
             } catch (error) {
                 console.log(error.message)
             }
         }
         fetchApi()
     }, [lat])
-
-    console.log(LatLng)
-
     return (
         <>
             {idea?.shop_address ? (

@@ -21,8 +21,8 @@ export default function PubContent() {
 			  }
 			}
 			getTokken();
-		}catch(err){
-			console.log(err);
+		}catch(error){
+			console.log(error.message);
         }
     }
   }, [isAuthentificated, loggedUser]);

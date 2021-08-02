@@ -137,7 +137,7 @@ export const deleteIdeaFailure = (ideaId) => ({
 });
 
 // Combine them all in an asynchronous thunk
-export function fetchIdeas(page=1, perPage=18, owner = undefined) {
+export function fetchIdeas(page=1, perPage=24, owner = undefined) {
   return async (dispatch) => {
     dispatch(getIdeas())
 
@@ -155,13 +155,13 @@ export function fetchIdeas(page=1, perPage=18, owner = undefined) {
   }
 }
 
-//Filter cars
-export function filterIdeas(page = 1, perPage = 18, postal_code, category, owner_type, usage, experience_eco) {
+//Filter ideals
+export function filterIdeas(page = 1, perPage = 24, title, postal_code, category, owner_type, usage, experience_eco, note) {
   return async (dispatch) => {
     dispatch(getIdeas())
 
     try {
-      const response = await API.Annonces.filter(perPage, page, postal_code, category, owner_type, usage, experience_eco);
+      const response = await API.Annonces.filter(perPage, page, title, postal_code, category, owner_type, usage, experience_eco, note);
 
       if(response.data){
         dispatch(getIdeasSuccess(response));

@@ -11,7 +11,6 @@ import {
 const CardHomeSlider = () => {
 	const router = useRouter();
 	const retriveSliders = router.pathname === '/' ? listsSliderHomes : listsSliderQAs;
-	const retriveSlider = router.pathname === '/' ? 'listsSliderHome' : 'listsSliderQA';
 	const settings = {
 		fade: true,
 		className: "annoceSlider",
@@ -38,7 +37,7 @@ const CardHomeSlider = () => {
 		<>
 				<Slider {...settings}>
 					{retriveSliders.map((retriveSlider, idx) => (
-						<div className="mt-4">
+						<div key={idx} className="mt-4">
 							<img
 								alt={retriveSlider.name}
 								src={retriveSlider.url}

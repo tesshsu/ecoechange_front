@@ -33,18 +33,19 @@ const HomeSearchForm = ({
 
 	const onSubmit = async (values) => {
 		const per_page_req = router.query.perPage ? router.query.perPage : 6;
+		const title = values.title
 		const postal_code = values.postal_code
 		const category = values.category
-		const sub_category = values.sub_category
 		const owner_type = values.owner_type
 		const usage = values.usage
 		const experience_eco = values.experience_eco
+		const note = values.note
 
 		try {
-			dispatch(filterIdeas(router.query.page, per_page_req, postal_code, category, sub_category, owner_type, usage, experience_eco))
+			dispatch(filterIdeas(router.query.page, per_page_req, title, postal_code, category, owner_type, usage, experience_eco, note))
 			setIsSetFilter(true)
-		} catch (err) {
-			console.log(err);
+		} catch (error) {
+			console.log(error.message);
 		}
 	}
 

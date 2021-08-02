@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {isMobile} from 'react-device-detect';
 import MondalContact from "components/Mondal/MondalContact.js";
+import MondalValide from "components/Mondal/MondalValide.js";
 import NoteConfiance from "components/Tabs/NoteConfiance.js";
 import {connect} from "react-redux";
 import {renderSwitchValue} from 'helpers/constant';
@@ -163,6 +164,23 @@ const DetailsSide = ({ dispatch,
 					)}
                 </div>
 			</div>
+
+			<div className="flex flex-wrap mt-2">
+				<div className="flex flex-wrap content-center items-center text-center justify-center h-full">
+					{idea?.note >= 2 && (
+						<div>
+						<div className="flex flex-wrap content-center items-center justify-center mr-auto h-full">
+							<button
+								className="bg-green-500 text-white active:bg-gray-600 font-bold uppercase animate-bounce text-sm px-6 py-4 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+								type="button"><i className="fas fa-vote-yea"></i> <span className="noteConfiance text-md"> LA COMMUNAUTÉ VALIDE </span>
+							</button>
+						</div>
+						<MondalValide transparent />
+						</div>
+					)}
+				</div>
+			</div>
+
 			<div className="flex flex-wrap mt-2">
 				<div className="flex flex-wrap content-center items-center justify-center mr-auto h-full">
 					<button
@@ -187,17 +205,17 @@ const DetailsSide = ({ dispatch,
 			</div>
 			<div className="flex flex-wrap mt-2">
 				<div className="flex flex-wrap content-center items-center justify-center mr-auto h-full">
-					<a href="https://lindosavonnerie.com/" target="_blank">
+					<a href="https://www.potagers-compagnie.fr/" target="_blank">
 						<img
 							alt="ecoechange pubImg"
-							src={require("assets/img/pub/lindosavonnerie.png")}
+							src={require("assets/img/pub/potagers.png")}
 							className="pubImage shadow-lg mx-auto rounded-lg"
 						/>
 					</a>
-					<a href="https://huilebenso.com/fr/" target="_blank">
+					<a href="https://thenakedshop.fr/" target="_blank">
 						<img
 							alt="ecoechange pubImg"
-							src={require("assets/img/pub/huilebenso.png")}
+							src={require("assets/img/pub/naked.png")}
 							className="pubImage shadow-lg mx-auto rounded-lg mt-4"
 						/>
 					</a>

@@ -37,8 +37,9 @@ const Favoris = ({ dispatch,
                                 <i className="fas fa-chevron-left"></i> retour à la page d'accueil
                             </button>
                         </Link>
+                        <h4 className="ml-4 font-bold text-2xl text-center text-gray-700 mt-4 py-4">Vos coups de coeur <i
+                            className="fab fa-gratipay animate-bounce"></i></h4>
                         <div className="flex flex-wrap">
-                            <h4 className="ml-4 font-bold text-lg text-gray-700 mt-4">Vos coups de coeur</h4>
                             <AnnonceFavoris transparent/>
                             { total == 0  ? (
                                 <div className="container mx-auto text-center">

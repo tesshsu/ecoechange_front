@@ -19,16 +19,17 @@ export function search(perPage, page, owner) {
       .then(({ data }) => data);
 }
 
-export function filter(perPage, page, postal_code, category, owner_type, usage, experience_eco ) {
+export function filter(perPage, page, title, postal_code, category, owner_type, usage, experience_eco, note ) {
   let url = `/api/v1/ideas/search?`;
   url += perPage ? 'perPage=' + perPage  : '',
       url += page ? '&page=' + page  : '',
+      url += title ? '&title=' + title  : '',
       url += postal_code ? '&postal_code=' + postal_code  : '',
       url += category ? '&category=' + category  : '',
       url += owner_type ? '&owner_type=' + owner_type  : '',
       url += usage ? '&usage=' + usage  : '',
-      url += experience_eco ? '&experience_eco=' + experience_eco  : '';
-
+      url += experience_eco ? '&experience_eco=' + experience_eco  : '',
+      url += note ? '&note=' + note  : '';
 
   return client
       .get(url)

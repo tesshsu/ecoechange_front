@@ -30,17 +30,33 @@ const Index = ({ dispatch,
     )
 
     useEffect(() => {
+        window.OneSignal = window.OneSignal || [];
+        OneSignal.push(function () {
+            OneSignal.init({
+                appId: "39c6581e-4ef7-48a8-b815-aee8c95c68e2",
+                notifyButton: {
+                    enable: true,
+                },
+
+                allowLocalhostAsSecureOrigin: true,
+            });
+        });
+
+        return () => {
+            window.OneSignal = undefined;
+        };
+    }, []);
+
+    useEffect(() => {
+        const title = router.query.title ? router.query.title : '';
         const postal_code= router.query.postal_code ? router.query.postal_code : '';
         const category= router.query.category ? router.query.category : '';
-        const sub_category= router.query.sub_category ? router.query.sub_category : '';
         const owner_type= router.query.owner_type ? router.query.owner_type : '';
         const usage= router.query.usage ? router.query.usage : '';
         const experience_eco= router.query.experience_eco ? router.query.experience_eco : '';
+        const note = router.query.note ? router.query.note : '';
 
-        dispatch(filterIdeas(router.query.page, router.query.perPage,
-            postal_code,
-            category, owner_type, sub_category,
-            usage, experience_eco));
+        dispatch(filterIdeas(router.query.page, router.query.perPage, title, postal_code, category, owner_type, usage, experience_eco, note));
     }, [dispatch])
   return (
     <>
@@ -58,9 +74,9 @@ const Index = ({ dispatch,
                           Ecoechange est une plateforme solidaire pour échanger  et partager gratuitement vos idées écologiques / locales / naturelles.
                       </p>
 
-                    <h4 className="text-lg font-semibold animate-bounce mt-4">
+                    <h4 className="text-2xl text-green-500 font-semibold animate-bounce mt-4">
                         <i className="fas fa-feather animate-bounce"></i> | <i className="far fa-paper-plane animate-bounce"></i> | <i
-                        className="fas fa-clipboard-list"></i> C’est si simple !
+                        className="fas fa-clipboard-list"></i> 100% gratuite ! C’est si simple !
                     </h4>
                 </div>
             </div>
@@ -68,10 +84,10 @@ const Index = ({ dispatch,
       </section>
 
 	  <section className="compare-block mt-4 relative bg-white">
-          <h4 className="titleMap text-4xl text-center text-green-500">Explorez les idées proches de vous <i
+          <h4 className="titleMap text-4xl text-center text-gray-700">Explorez les idées proches de vous <i
               className="fas fa-map-signs animate-bounce"></i></h4>
           <Map />
-          <p className="text-md text-center text-gray-400">Cliquer sur les feuilles pour voir les détails <i
+          <p className="text-md text-center text-gray-600">Cliquer sur les feuilles pour voir les détails <i
               className="fas fa-leaf animate-bounce"></i> </p>
           <CardHomeCategorySlider />
           <div className="mx-auto px-4 pb-8 mt-4">
@@ -98,38 +114,66 @@ const Index = ({ dispatch,
               <div className="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
                       <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
                           <div className="px-4 py-5 flex-auto">
+                              <img
+                                  alt="..."
+                                  src={require("assets/img/pub/leave.png")}
+                                  className="w-full align-center"
+                              />
                               <div
-                                  className="text-white p-3 text-center inline-flex items-center justify-center h-12 mb-5 shadow-lg rounded-full bg-green-500">
+                                  className="text-white p-3 text-center inline-flex items-center justify-center h-12 mb-5 shadow-lg rounded-full bg-green-500 mt-2 animate-bounce">
                                   <i className="fas fa-leaf"></i><i className="fas fa-leaf"></i><i className="fas fa-leaf"></i></div>
-                              <h6 className="text-xl font-semibold">Gagner des leaves : </h6><p
-                              className="mt-2 mb-4 text-blueGray-500">Pour chaque idée mise en favori </p><p
-                              className="mb-4 text-blueGray-500">Leur activité est référencée sur le site </p></div>
+                              <h6 className="text-xl font-semibold">Nous développons un système de notation qui permettra d'évaluer l'intérêt  écologique </h6><p
+                              className="mt-2 mb-4 text-blueGray-500">Ecoechange vous offre plus de visibilité et la possibilité d'apporter une valeur ajoutée à votre annonce/idée par le référencement naturel </p>
+                              <Link href="/noteEco">
+                                  <button
+                                      className="text-white p-3 shadow-lg rounded-full bg-green-500 mr-2"
+                                      type="button"
+                                  >
+                                      Voir l'explication <i className="fas fa-feather-alt animate-bounce"></i>
+                                  </button>
+                              </Link>
+                              <a className="text-white p-3 shadow-lg rounded-full bg-green-500" href={`https://ecoechange.com/annonce?id=201`} rel="noreferrer" target="_blank">Voir exemple</a>
+                          </div>
                       </div>
               </div>
               <div className="w-full md:w-4/12 px-4 text-center">
                   <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
                       <div className="px-4 py-5 flex-auto">
+                          <img
+                              alt="..."
+                              src={require("assets/img/pub/carte.png")}
+                              className="w-full align-center"
+                          />
                           <div
-                              className="text-white p-3 text-center inline-flex items-center justify-center h-12 mb-5 shadow-lg rounded-full bg-green-500">
+                              className="text-white p-3 text-center inline-flex items-center justify-center h-12 mb-5 shadow-lg rounded-full bg-green-500 mt-2 animate-bounce">
                               <i className="fas fa-tag"></i><i className="fas fa-map-marker-alt"></i></div>
-                          <h6 className="text-xl font-semibold">Filtre</h6><p
-                          className="mt-2 mb-4 text-blueGray-500">Pour faciliter vos recherches</p></div>
+                          <h6 className="text-xl font-semibold">Une carte interactive</h6><p
+                          className="mt-2 mb-4 text-blueGray-500">Qui vous permet de voir rapidement les producteurs, artisans et commerçants de vos régions. Cela vous permet aussi de facilement visualiser la localisation des annonces!</p>
+                          <a className="text-white p-3 shadow-lg rounded-full bg-green-500" href={`https://ecoechange.com/annonce?id=203`} rel="noreferrer" target="_blank">Voir exemple</a>
+                      </div>
                   </div>
               </div>
               <div className="pt-6 w-full md:w-4/12 px-4 text-center">
                   <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
                       <div className="px-4 py-5 flex-auto">
+                          <img
+                              alt="..."
+                              src={require("assets/img/pub/youtube.png")}
+                              className="w-full align-center"
+                          />
                           <div
-                              className="text-white p-3 text-center inline-flex items-center justify-center h-12 mb-5 shadow-lg rounded-full bg-green-500">
+                              className="text-white p-3 text-center inline-flex items-center justify-center h-12 mb-5 shadow-lg rounded-full bg-green-500 mt-2 animate-bounce">
                               <i className="fab fa-youtube"></i><i className="fab fa-facebook"></i><i
                               className="fab fa-instagram-square"></i></div>
                           <h6 className="text-xl font-semibold"> Interactivité avec fonctionnalité youtube</h6><p
-                          className="mt-2 mb-4 text-blueGray-500">Possibilité de visionner une vidéo youtube directement sur l'annonce</p></div>
+                          className="mt-2 mb-4 text-blueGray-500">Possibilité de visionner une vidéo youtube directement sur l'annonce</p>
+                          <a className="text-white p-3 shadow-lg rounded-full bg-green-500" href={`https://ecoechange.com/annonce?id=142`} rel="noreferrer" target="_blank">Voir exemple</a>
+                      </div>
                   </div>
               </div>
           </div>
 
-        <div className="container mx-auto mt-12">
+        <div className="blockBigIntro container mx-auto mt-12">
           <div className="flex flex-wrap items-center">
             <div className="class-block w-full md:w-6/12 px-4 z-40">
               <div className="blockConcept  relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded bg-green-500">
@@ -203,12 +247,9 @@ const Index = ({ dispatch,
                 <h3 className="supportBlock text-3xl font-semibold">
                     Soutenez Ecoechange
                 </h3>
-				<a href="https://fr.tipeee.com/ecoechange" className="tipeee-project-card text-green-500 text-xl">Ecoechange sur Tipeee</a>
-                <script async src="https://plugin.tipeee.com/widget.js" charset="utf-8"></script>
-				<h3 className="text-xl font-semibold">
-                    Ou
-                </h3>
-				<iframe className="okpalBlock" width="230" height="300" src="https://www.okpal.com/projects/01F1QDY79FC2TX6THNEZ5M3WA6/widget" frameborder="0" scrolling="no"></iframe>
+                  <p className="text-lg text-left">Ecoechange est 100% gratuit pour les équipes bénévoles et les étudiants stagiaires, c'est pourquoi nous avons besoin de votre soutien pour  <Link href="/noteEco"><span className="font-bold">LA COMMUNAUTÉ VALIDE</span></Link> : Une solution utile en temps de crise mais aussi pour l’après-crise!
+                </p>
+                  <p className="text-lg text-left">Venez voter pour aider les artisans à confirmer leur note écologique! 🌱</p>
               </div>
             </div>
 

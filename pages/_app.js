@@ -17,7 +17,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import "assets/styles/tailwind.css";
 import CookieConsent from "react-cookie-consent";
 import * as LOGGED_USER_ACTIONS from "../service/actions/loggedUser";
-import {favoritesReducer , ideasReducer, userReducer} from "../service/reducers";
+import {votesReducer , favoritesReducer, ideasReducer, userReducer} from "../service/reducers";
 import {setupStripe} from "../api/stripeClient";
 import ReactGA from 'react-ga';
 
@@ -33,6 +33,7 @@ const rootReducers = combineReducers({
     user: userReducer,
     ideasReducer: ideasReducer,
     favoritesReducer: favoritesReducer,
+    votesReducer: votesReducer,
     ...reducers,
 })
 const store = createStore(
@@ -91,6 +92,7 @@ function getCookie(cname) {
 // Export App
 //------------------------
 export default class MyApp extends App {
+
     static async getInitialProps({ Component, router, ctx }) {
         let pageProps = {};
 

@@ -2,17 +2,25 @@ import React from "react";
 import Link from "next/link";
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import Footer from "components/Footers/Footer.js";
-import CardHomeSlider from "components/Cards/CardHomeSlider";
+import YouTube from 'react-youtube';
+import {isMobile} from 'react-device-detect';
 
 export default function faq() {
+    const videoOnReady = async(e) => {
+        e.target.playVideoAt(10)
+    }
+    const YouTubeStyle = isMobile ? '280vw' : '580vw'
+    const opts = {
+        width: YouTubeStyle,
+        playerVars: {
+            autoplay: 0,
+        },
+    };
   return (
     <>
       <IndexNavbar fixed />
       <main className="data-page">
-        <section className="sliderQA relative block h-700-px">
-          <CardHomeSlider />
-        </section>
-        <section className="qaBlock relative py-16 bg-gray-300">
+        <section className="qaBlock relative bg-green-500 md:mt-64">
           <div className="container mx-auto px-4">
             <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg -mt-64">
               <div className="px-6">
@@ -147,20 +155,37 @@ export default function faq() {
                             className="text-green-500"
                         >vous connecter </a>pour modifier votre annonce. </li>
 					  </ul>
-					  <h4 className="text-2xl font-semibold leading-normal mb-2 text-gray-800 mb-2">
+                        <h4 className="text-green-500 font-semibold p-4 text-center text-lg">Améliorer la visibilité de votre boutique/idée/service <i
+                            className="fas fa-leaf animate-bounce"></i></h4>
+                        <div className="EcoVideo text-center">
+                            <YouTube videoId="7yERmgkC8Zg" className="img-responsive" opts={opts} onReady={videoOnReady} />
+                        </div>
+					  <h4 className="text-2xl font-semibold leading-normal mb-2 mt-4 text-gray-800 mb-2">
                           Pourquoi utiliser la plateforme Ecoechange ?
 					  </h4>
                         <ul className="list-square ml-4">
                             <li>
                                 Des annonces détaillées et stimulantes : Ecoechange est conçu sur mesure pour vous donner la possibilité de personnaliser les annonces avec des liens, des photos et même des vidéos YouTube
                             </li>
-                            <li> La géolocalisation permet de mettre en lumière les initiatives locales, au plus près de chez-vous avec un affichage simple</li>
                             <li> Système de notification pour promouvoir les annonces (grâce aux likes)
                             </li>
+                            <li>
+                                Système de notation qui permettra <a
+                                href="/noteEco"
+                                target="_blank"
+                                className="text-green-500"
+                            >d'évaluer l'intérêt écologique</a>, cela vous offre plus de visibilité et la possibilité d'apporter une valeur ajoutée à votre annonce/idée par le référencement naturel
+                            </li>
+                            <li> La géolocalisation permet de mettre en lumière les initiatives locales, au plus près de chez-vous avec un affichage simple</li>
                             <li> Partagez facilement les astuces et bons plans sur les réseaux sociaux!
                             </li>
                             <li> Une newsletter qui met en avant les annonces de la semaine (Notre sélection de la semaine) </li>
-                            <li> Possibilité d’afficher une annonce publicitaire 100% gratuitement. Contactez-nous! </li>
+                            <li> D’afficher une annonce publicitaire 100% gratuitement </li>
+                            <li> L'équipe ecoechange en mesure de vous <a
+                                href="/footer/contact"
+                                target="_blank"
+                                className="text-green-500"
+                            >proposer des conseils</a>, en termes d'usagers, mais aussi et surtout en termes de fonctionnalités</li>
                             <li> Et bien plus à venir… </li>
                         </ul>
                     </div>
@@ -204,6 +229,101 @@ export default function faq() {
                               <p className="mb-4 text-lg leading-relaxed text-gray-800">
                                   Vous pouvez vous adresser directement à nos équipes en cliquant sur l’onglet <a href="/partager" className="text-green-500">REJOIGNEZ-NOUS</a>
                               </p>
+                          </div>
+                      </div>
+
+                  </div>
+
+                  <div className="mt-10 py-10 border-t border-gray-300 text-left">
+                      <div className="flex flex-wrap justify-center">
+                          <div className="w-full lg:w-9/12 px-4">
+                              <h1 className="text-3xl font-semibold leading-normal mb-2 text-green-500 underline mb-2">NOUS RECHERCHONS DES
+                                  PARTENARIATS
+                              </h1>
+                          </div>
+                      </div>
+                      <div className="flex flex-wrap justify-center">
+                          <div className="w-full lg:w-9/12 px-4">
+                              <h4 className="text-2xl font-semibold leading-normal mb-2 text-gray-800 mb-2">
+                                  A quoi sert ce site pour notre partenaires ?
+                              </h4>
+                              <p className="mb-4 text-lg leading-relaxed text-gray-800">
+                                  L'idée d'un partenariat nous ravit! Avec ce partenariat, nous ferions votre promotion ensemble!!
+                              </p>
+                              <div className="flex flex-wrap">
+                                  <div className="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
+                                      <div
+                                          className="relative flex flex-col min-w-0 break-words w-full mb-8 shadow-lg">
+                                          <img
+                                              alt="defalut ideaImg"
+                                              src={require("assets/img/qa/qrcode.png")}
+                                              className="shadow-lg mx-auto"
+                                          />
+                                      </div>
+                                  </div>
+                                  <div className="lg:pt-24 pt-6 w-full md:w-4/12 px-4 text-center">
+                                      <div
+                                          className="relative flex flex-col min-w-0 break-words w-full mb-8 shadow-lg">
+                                          <img
+                                              alt="..."
+                                              src={require("assets/img/qa/leave4.png")}
+                                              className="shadow-lg mx-auto"
+                                          />
+                                      </div>
+                                  </div>
+                                  <div className="lg:pt-24 pt-6 w-full md:w-4/12 px-4 text-center">
+                                      <div
+                                          className="relative flex flex-col min-w-0 break-words w-full mb-8 shadow-lg">
+                                          <img
+                                              alt="..."
+                                              src={require("assets/img/qa/leave5.png")}
+                                              className="shadow-lg mx-auto"
+                                          />
+                                      </div>
+                                  </div>
+
+                              </div>
+
+                              <p className="mt-4 text-md text-green-500 font-semibold">
+                                  Nous vous fournirons également notre badge avec notre logo:
+                              </p>
+                              <ul className="flex flex-wrap list-none">
+                                  <il>
+                                      1. notre logo EcoEchange, que vous pourrez également mettre sur votre site
+                                  </il>
+                                  <il>
+                                      2. notre green certified logo: vous pourrez le mettre en place sur votre site avec un lien ou avec QRcode qui permettra de scanner ledit lien directement!
+                                  </il>
+                              </ul>
+                              <p className="mt-4 text-md text-green-500 font-semibold">
+                                  A l'avenir:
+                              </p>
+                              <ul className="flex flex-wrap list-none">
+                                  <il>
+                                      1. Nous mettrons également votre logo sur notre page dédiée aux partenariats
+                                  </il>
+                                  <il>
+                                      2. Nous lancerons notre campagne et ferons la promotion de votre service/boutique selon les dons des utilisateurs de la plateforme.
+                                  </il>
+                                  <il>
+                                      3. Nous publierons notre newsletter hebdomadaire, en utilisant votre code promo spécial pour promouvoir votre magasin/idée, par exemple : codePromoEco.
+                                  </il>
+                              </ul>
+                              <button
+                                  className="mt-4 bg-green-500 text-white active:bg-gray-700 text-xs animate-bounce font-bold uppercase px-4 py-2 rounded-full shadow hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150"
+                                  type="button"
+                              >
+                                  <Link href="/footer/contact">
+                                      <a
+                                          href="#"
+                                          className={
+                                              "text-xl py-1 px-4 font-normal block w-full whitespace-no-wrap bg-transparent"
+                                          }
+                                      >
+                                          REJOIGNEZ-NOUS
+                                      </a>
+                                  </Link>
+                              </button>
                           </div>
                       </div>
 

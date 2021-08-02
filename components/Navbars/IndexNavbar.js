@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Link from "next/link";
 // components
-//import IndexDropdown from "components/Dropdowns/IndexDropdown.js";
 import useLoggedUser from 'service/hooks/useLoggedUser';
 import {fetchUser} from 'service/actions/user';
 import {connect} from 'react-redux';
@@ -111,7 +110,7 @@ const Navbar = ({dispatch, loading, user, hasErrors}) => {
                               <a
                                   href="#pablo"
                                   className={
-                                      "text-sm py-1 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-white-500"
+                                      "text-sm px-2 font-normal block w-full whitespace-no-wrap bg-transparent text-white-500"
                                   }
                               >
                                   échange idées
@@ -119,17 +118,34 @@ const Navbar = ({dispatch, loading, user, hasErrors}) => {
                           </Link>
                       </button>
                   </li>
+                <li className="flex items-center">
+                    <button
+                        className="bg-white text-white active:bg-gray-700 text-xs font-bold uppercase px-4 py-2 rounded-full shadow hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150"
+                        type="button"
+                    >
+                        <Link href="/noteEco">
+                            <a
+                                href="#pablo"
+                                className={
+                                    "text-sm px-2 font-normal block w-full whitespace-no-wrap bg-transparent text-green-500"
+                                }
+                            >
+                                la note écologique
+                            </a>
+                        </Link>
+                    </button>
+                </li>
 
               <li className="flex items-center">
                 <button
-                  className="bg-white text-white active:bg-gray-700 text-xs font-bold uppercase px-4 py-2 rounded-full shadow hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150"
+                  className="bg-gray-800 text-white active:bg-gray-700 text-xs font-bold uppercase px-4 py-2 rounded-full shadow hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150"
                   type="button"
                 >
                   <Link href="/partager">
 					  <a
 						href="#pablo"
 						className={
-						  "text-sm py-1 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-green-500"
+						  "text-sm px-2 font-normal block w-full whitespace-no-wrap bg-transparent text-white"
 						}
 					  >
 						Partager
@@ -139,14 +155,14 @@ const Navbar = ({dispatch, loading, user, hasErrors}) => {
               </li>
                 <li className="flex items-center">
                     <button
-                        className="bg-gray-800 text-white active:bg-gray-700 text-xs font-bold uppercase px-4 py-2 rounded-full shadow hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150"
+                        className="bg-white active:bg-gray-700 text-xs font-bold uppercase px-4 py-2 rounded-full shadow hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150"
                         type="button"
                     >
                         <Link href="/footer/contact">
                             <a
                                 href="#pablo"
                                 className={
-                                    "text-sm py-1 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-white animate-bounce"
+                                    "text-sm px-2 font-normal block w-full whitespace-no-wrap bg-transparent text-green-500 animate-bounce"
                                 }
                             >
                                 Rejoignez-nous <i className="fas fa-leaf"></i>
@@ -164,7 +180,7 @@ const Navbar = ({dispatch, loading, user, hasErrors}) => {
                                 <a
                                     href="#pablo"
                                     className={
-                                        "text-sm py-1 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-white-500"
+                                        "text-sm px-2 font-normal block w-full whitespace-no-wrap bg-transparent text-white-500"
                                     }
                                 >
                                     Mon idée
@@ -183,7 +199,7 @@ const Navbar = ({dispatch, loading, user, hasErrors}) => {
 						  <a
 							href="#pablo"
 							className={
-							  "text-sm py-1 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-white-500"
+							  "text-sm px-2 font-normal block w-full whitespace-no-wrap bg-transparent text-white-500"
 							}
 						  >
 							Favoris

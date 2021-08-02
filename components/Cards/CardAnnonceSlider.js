@@ -42,6 +42,13 @@ const CardAnnonceSlider = ({ dispatch,
 					{
 						uploadFiles?.map(uploadFile => (
 							<div>
+								{idea?.note >= 9 && idea?.votes?.confirmed == 5 && (
+									<img
+										alt="..."
+										src={require("assets/img/note/certificate/certified.png")}
+										className="w-full align-left certifiImageDetail animate-bounce-small"
+									/>
+								)}
 								<img className="sliderImg" src={process.env.NEXT_PUBLIC_API_URL + uploadFile.url} alt={uploadFile.name}/>
 							</div>
 						))}

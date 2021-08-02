@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 import { MapContainer, Marker, TileLayer, Popup} from "react-leaflet"
 import "leaflet/dist/leaflet.css"
 import { Icon, marker, latLng } from "leaflet"
-import {data} from "../../helpers/constant"
+import {data} from "../../helpers/constantMap"
 
 
 const CardAnnonceMap = ({ dispatch, loading, ideas }) => {

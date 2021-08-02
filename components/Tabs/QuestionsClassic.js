@@ -124,8 +124,8 @@ const QuestionsClassic = ({dispatch, loading, error, idea}) => {
 				await create(values);
 				setIsFirst(false)
 			}
-		} catch (err) {
-			console.log(err);
+		} catch (error) {
+			console.log(error.message);
 			setHasErrors(true);
 		}
 	}
@@ -487,7 +487,7 @@ const QuestionsClassic = ({dispatch, loading, error, idea}) => {
 																			type="submit"
 																			disabled={submitting}
 																		>
-																			<i className="fas fa-car-alt text-base mr-1 animate-bounce"></i> ENVOYER
+																			<i className="fas fa-seedling text-base mr-1 animate-bounce"></i> ENVOYER
 																		</button>
 																	):(
 																		<a
@@ -1020,7 +1020,7 @@ const QuestionsClassic = ({dispatch, loading, error, idea}) => {
 																	type="submit"
 																	disabled={submitting}
 																>
-																	<i className="fas fa-car-alt text-base mr-1 animate-bounce"></i> ENVOYER
+																	<i className="fas fa-seedling text-base mr-1 animate-bounce"></i> ENVOYER
 																</button>
 															):(
 																<a
